@@ -1,0 +1,41 @@
+html, body { height: 100%; }
+#wrapper { min-height: 100%; height: auto; margin:0 auto; padding: 47px 0 40px; }
+.hightlight-body #wrapper { background: rgba(0, 0, 0,0.5); }
+
+#pageheader { background:#000; height:auto; text-align:center; padding:10px 0; position: fixed; top: 0; left: 0; width: 100%; z-index: 999; }
+
+#pagecontent .product-list { border:1px solid #ccc; margin-bottom:30px; }
+#pagecontent .product-list .product-title { position:relative; padding:13px 10px 13px 30px; }
+#pagecontent .product-list .product-title .favorite { position:absolute; left:10px; top:10px; }
+#pagecontent .product-list .product-title h5 { text-align:right; margin:0; }
+
+#pagefooter { height: 40px; background-color: #ffff; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999; }
+#pagefooter .caret-up { -webkit-transform: rotate(-180deg); -moz-transform: rotate(-180deg); -ms-transform: rotate(-180deg); -o-transform: rotate(-180deg);    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=6); }
+#pagefooter .drop-up { top: auto; right:0; bottom: 100% !important; text-align:center; }
+#pagefooter .drop-up li { margin-bottom:20px; }
+#pagefooter .btn-group { width:100%; background:#000; }
+#pagefooter .btn-group button { border:0; width:100%; min-height:40px;  background:#000; border-radius:0; color:#fff; }
+#pagefooter .btn-group button img { opacity:0.5; }
+#pagefooter .btn-group button:hover img { opacity:1; }
+#pagefooter .btn-group.open .dropdown-toggle, #pagefooter .open>.dropdown-toggle.btn-default:focus { -webkit-box-shadow:none; box-shadow: none; border-radius:0; }
+
+#flat-slider-vertical-1.ui-widget-content {
+	position:relative;
+	background:url(../img/bar-color.png) no-repeat center top;
+	background-size: cover;
+	width:20px;
+	height: 200px;
+	margin: 0 auto;
+}
+#flat-slider-vertical-1 .ui-widget-header {
+	background:none;
+}
+#flat-slider-vertical-1.ui-widget-content .ui-slider-handle {
+	left: inherit;
+	right: -27px;
+	background: url(../img/moving-arrow.png) no-repeat right center;
+	background-size: 84%;
+	width: 61px;
+	outline: none;
+	border: 0;
+}

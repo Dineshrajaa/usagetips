@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.LogicSquare.Price" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Price</name>
+    <description>
+            A Simple shopping app.
+        </description>
+    <author email="vineet@logic-square.com" href="http://cordova.io">
+            Vineet
+        </author>
+    <content src="index.html" />
+    <platform name="android">
+        <icon density="ldpi" src="res/android/ldpi.png" />
+        <icon density="mdpi" src="res/android/mdpi.png" />
+        <icon density="hdpi" src="res/android/hdpi.png" />
+        <icon density="xhdpi" src="res/android/xhdpi.png" />
+        <icon density="xxhdpi" src="res/android/xxhdpi.png" />
+    </platform>
+    <platform name="ios">
+        <icon height="180" src="res/ios/icon-60@3x.png" width="180" />
+        <icon height="60" src="res/ios/icon-60.png" width="60" />
+        <icon height="120" src="res/ios/icon-60@2x.png" width="120" />
+        <icon height="76" src="res/ios/icon-76.png" width="76" />
+        <icon height="152" src="res/ios/icon-76@2x.png" width="152" />
+        <icon height="40" src="res/ios/icon-40.png" width="40" />
+        <icon height="80" src="res/ios/icon-40@2x.png" width="80" />
+        <icon height="57" src="res/ios/icon.png" width="57" />
+        <icon height="114" src="res/ios/icon@2x.png" width="114" />
+        <icon height="72" src="res/ios/icon-72.png" width="72" />
+        <icon height="144" src="res/ios/icon-72@2x.png" width="144" />
+        <icon height="29" src="res/ios/icon-small.png" width="29" />
+        <icon height="58" src="res/ios/icon-small@2x.png" width="58" />
+        <icon height="50" src="res/ios/icon-50.png" width="50" />
+        <icon height="100" src="res/ios/icon-50@2x.png" width="100" />
+    </platform>
+    
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <preference name="AndroidLaunchMode" value="singleTop" />
+        <preference name="android-minSdkVersion" value="15" />
+        <preference name="android-build-tool" value="gradle" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <preference name="StatusBarBackgroundColor" value="#000000" /> <!-- Set status bar color -->
+        <preference name="StatusBarOverlaysWebView" value="false" /> <!-- Separate statusbar from app -->
+    </platform>
+    <plugin name="phonegap-facebook-plugin" spec="~0.12.0">
+        <variable name="APP_ID" value="1047876051936088" />
+        <variable name="APP_NAME" value="Price-Dev" />
+    </plugin>
+    <plugin name="cordova-plugin-whitelist" spec="1" />s
+    <plugin name="cordova-plugin-themeablebrowser" spec="~0.2.12" />
+    <!-- <plugin name="cordova-plugin-x-toast" spec="~2.4.0" /> -->
+    <plugin name="cordova-plugin-dialogs" spec="~1.2.0" />
+    <plugin name="cordova-plugin-network-information" spec="~1.2.0" />
+    <plugin name="cordova-plugin-statusbar" spec="~2.1.1" />
+</widget>
