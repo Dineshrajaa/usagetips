@@ -332,7 +332,7 @@
 
 	                if (parsedata[0].products.length) {
 	                    console.log('calling load prof from windows ');
-	                    loadprof("false");
+	                    loadprofNew("false");
 	                    fetchFavorites(); //Load the favorites
 	                } else {
 	                    $('.add-items').html('');
@@ -374,7 +374,7 @@
 	        if ($(this).data("favorite") == "like") {
 	            var purchaseurl = $(this).data("purchaseurl");
 	            $(this).data("favorite", "liked");
-	            $(this).attr("src", "./assets/img/liked.png");
+	            $(this).attr("src", "img/liked.png");
 	            $.ajax({
 	                url: "http://staging12.getpriceapp.com/favourites/add",
 	                data: {
@@ -516,7 +516,7 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2900);
 	    setTimeout(function() {
-	        od.update(realValue -9);
+	        od.update(realValue - 9);
 	        $(".shopname").text("Overstock.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 3200);
@@ -669,6 +669,66 @@
 
 
 	    }); //end of ajax call
+	}
+
+	function loadprofNew(clear) {
+	    var parsedata = JSON.parse(localStorage.getItem('itemdata'));
+	    if (clear == "true") {
+	        console.warn("Clearing product list");
+	        $('.add-items').html(' '); // if clear==true empty the products list(To avoid problems with Load more have used it)
+	    }
+	    if (categoryitemclicked) {
+	        $('.add-items').html(' ');
+	        categoryitemclicked = false;
+	    }
+	    for (var i = 0; i < parsedata[0].products.length; i++) {
+	        var img10, img11;
+	        if (parsedata[0].products[i].fields.photo_set.length)
+	            img10 = parsedata[0].products[i].fields.photo_set[0].url_large;
+	        else
+	            img10 = "img/no_img.png";
+	        //checking for long text
+	        if (parsedata[0].products[i].fields.description != null && parsedata[0].products[i].fields.description.length > 10) {
+	            var shorttext = trimLong(parsedata[0].products[i].fields.description);
+	            parsedata[0].products[i].fields.description = shorttext;
+	        }
+
+	        if (parsedata[0].products[i].fields.brand != null && parsedata[0].products[i].fields.brand.length > 10) {
+	            var shorttext = trimLong(parsedata[0].products[i].fields.brand);
+	            parsedata[0].products[i].fields.brand = shorttext;
+	        }
+	        if (parsedata[0].products[i].fields.brand)
+	            console.log("Brand available");
+	        else parsedata[0].products[i].fields.brand = 'N/A';
+	        if (parsedata[0].products[i].fields.description)
+	            console.log("Description available");
+	        else parsedata[0].products[i].fields.description = 'N/A'
+	        $(".add-items").append('<div class="col-md-3 col-sm-6 col-xs-6">' + renderItemNew(i, parsedata[0].products[i], img10) + '</div>');
+	    }
+	}
+
+	function renderItemNew(uniqueId, product, imgUrl) {
+	    if (typeof product == 'undefined')
+	        return "";
+	    else {
+	        var productHtml = '<div class="product-list">'; // productlist start
+	        productHtml += '<img src="' + imgUrl + '" class="img-responsive items" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">'; // Product image
+	        productHtml += getModalHTML(uniqueId, product, imgUrl); // Modal html maker call
+	        productHtml += '<div class="product-title">'; // product title start
+	        productHtml += '<span class="favorite"><img src="img/icons/fav_gray.png" class="like" data-favorite="like" data-purchaseurl="' + product.fields.purchase_url + '" id="' + product.fields.id + 'like"></span>'
+	        productHtml += '<h5 data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" data-toggle="modal" data-target="#myModal' + uniqueId + '">'+product.fields.brand+'</h5>'; // product name start & end
+	        productHtml += '</div>'; // product title end
+	        productHtml += '</div>'; // productlist end
+	        return productHtml;
+	    }
+	    /*return '<img src="' + imgUrl + '" class="img-responsive items" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">\
+									' + getModalHTML(uniqueId, product, imgUrl) +
+	        '<div class="row border-outline">\
+										<div class="col-xs-12 pic" >\
+											<p ><img src="./assets/img/like.png"  class="like" data-favorite="like" data-purchaseurl="' + product.fields.purchase_url + '" id="' + product.fields.id + 'like"><span style="text-decoration: none!important;" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" data-toggle="modal" data-target="#myModal' + uniqueId + '">' + product.fields.brand + '</span>\
+												<br> <span style="display:none" class="strike" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" data-toggle="modal" data-target="#myModal' + uniqueId + '">$' + product.fields.price + '</span></p>\
+										</div>\
+									</div>';*/
 	}
 
 	function loadprof(clear) {
@@ -1122,7 +1182,7 @@
 
 	            console.log('calling load 537 windows ');
 
-	            loadprof("false");
+	            loadprofNew("false");
 	            fetchFavorites(); //Load the favorites
 	            console.log(JSON.stringify(parsedata[0].paginator))
 	            if (parsedata[0].paginator.has_next)
@@ -1211,7 +1271,7 @@
 	            var parsedata = JSON.parse(localStorage.getItem('itemdata'));
 	            console.log('calling load prof from windows ');
 	            //loadprofcolr();
-	            loadprof("true");
+	            loadprofNew("true");
 	            fetchFavorites(); //Load the favorites
 	            if (parsedata[0].paginator.has_next)
 	                hasnext = true;
@@ -1264,7 +1324,7 @@
 	                console.log(JSON.stringify(data));
 
 
-	                loadprof("false");
+	                loadprofNew("false");
 	                fetchFavorites(); //Load the favorites
 	            }
 	            console.log(JSON.stringify(parsedata[0].paginator))
@@ -1397,7 +1457,7 @@
 	                favorites[i].likebtnid = itemIdProduct + "like";
 	                $('.scrollable-menu-favourite').append(getFavoritesHTML(favorites[i]));
 	                //update heart image
-	                $("#" + itemIdProduct + "like").attr("src", "./assets/img/liked.png");
+	                $("#" + itemIdProduct + "like").attr("src", "img/liked.png");
 	                $("#" + itemIdProduct + "like").data("favorite", "liked");
 	                console.warn("#" + itemIdProduct + "like");
 	                console.warn($("#" + itemIdProduct + "like"));

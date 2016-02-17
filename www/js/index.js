@@ -1,7 +1,7 @@
 //attach fastclick
 var s = document.createElement("script");
 s.type = "text/javascript";
-s.src = "js/lib/fastclick.js";
+s.src = "js/lib/fastclick/fastclick.js";
 $("head").append(s);
 $(function() {
     Origami.fastclick.FastClick.attach(document.body);
@@ -31,6 +31,7 @@ document.addEventListener("deviceready", function() {
     if (cordova.platformId == 'android') {
         StatusBar.backgroundColorByHexString("#000000"); // set the status bar color as black
     }
+    
 }, false);
 
 var loginMethods = {
@@ -85,11 +86,11 @@ var loginMethods = {
 
                         if (userdata.fbGender == 'female') {
                             //female category code 
-                           window.location='cart_Page.html' //Dinesh
-                           // window.location = 'cart_page_male.html'
+                            window.location = 'cart_Page.html' //Dinesh
+                                // window.location = 'cart_page_male.html'
                         } else {
                             //window.location = 'cart_Page.html'
-                               window.location='cart_page_male.html'
+                            window.location = 'cart_page_male.html'
                         }
                     }
                 } else {
@@ -215,11 +216,11 @@ var loginMethods = {
                     /*window.tokenid =data.id; // Store it in the window to make it global
                     console.log("tokenid:"+tokenid);*/
                     if (localStorage.getItem('type') == 'female') {
-                       //window.location = 'cart_page_male.html'
-                            window.location='cart_Page.html'
+                        //window.location = 'cart_page_male.html'
+                        window.location = 'cart_Page.html'
                     } else {
                         //window.location = 'cart_Page.html'
-                            window.location='cart_page_male.html'
+                        window.location = 'cart_page_male.html'
                     }
 
 
