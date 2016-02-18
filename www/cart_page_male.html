@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>Price</title>
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/jquery-ui/jquery-ui.css">
@@ -21,8 +21,8 @@
     <div id="wrapper">
         <main id="pagecontent">
             <div class="container-fluid">
-                <div class="add-items">
-<!--                     <div class="col-md-3 col-sm-6 col-xs-6">
+                <div class="row top-margin add-items">
+                    <!--         <div class="add-items">            <div class="col-md-3 col-sm-6 col-xs-6">
                         <div class="product-list">
                             <img src="img/bag.jpg" class="img-responsive">
                             <div class="product-title">
@@ -84,7 +84,7 @@
                                 <h5>Leatherman</h5>
                             </div>
                         </div>
-                    </div> -->
+                    </div> </div>-->
                 </div>
             </div>
         </main>
@@ -97,18 +97,27 @@
                         <div class="demo">
                             <div class="btn-group dropdisable">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><img src="img/icons/filter_white.png" width="20" height="25"></button>
-                                <ul class="dropdown-menu drop-up product-filter" role="menu">
-                                    <li>
-                                        <a href="#" id="watchimg"><img src="img/icons/rose.png"></a>
+                                <ul class="dropdown-menu drop-up product-filter needsclick scrollable-menu-filter" role="menu">
+                                    <li id="shirtimg">
+                                        <a href="#"><img src="img/icons/t-shart.png"></a>
                                     </li>
-                                    <li>
-                                        <a href="#" id="gadgetimg"><img src="img/icons/headphone.png"></a>
+                                    <li id="gadgetimg">
+                                        <a href="#"><img src="img/icons/headphone.png"></a>
                                     </li>
-                                    <li>
-                                        <a href="#" id="cycleimg"><img src="img/icons/tent.png"></a>
+                                    <li id="cycleimg">
+                                        <a href="#"><img src="img/icons/tent.png"></a>
                                     </li>
-                                    <li>
-                                        <a href="#" id="maleall"><img src="img/icons/all.png"></a>
+                                    <li id="watchimg">
+                                        <a href="#"><img src="img/icons/watch.png"></a>
+                                    </li>
+                                    <li id="shoeimg">
+                                        <a href="#"><img src="img/icons/shoes.png"></a>
+                                    </li>
+                                    <li id="mensgoogles">
+                                        <a href="#"><img src="img/icons/Men_goggles.png"></a>
+                                    </li>
+                                    <li id="maleall">
+                                        <a href="#"><img src="img/icons/all.png"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -119,8 +128,8 @@
                     <div class="row">
                         <div class="btn-group dropdisable" id="favoritedropdown">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="colord"><img src="img/icons/fav_white.png" width="28" height="25"></button>
-                            <ul class="row dropdown-menu drop-up favorite-filter" role="menu" id="mylist">
-                                <li class="col-md-12 col-sm-12 col-xs-12">
+                            <ul class="row dropdown-menu drop-up favorite-filter scrollable-menu-favourite" role="menu" id="mylist">
+                                <!-- <li class="col-md-12 col-sm-12 col-xs-12">
                                     <a href="#"><img src="img/bag.jpg"></a>
                                 </li>
                                 <li class="col-md-12 col-sm-12 col-xs-12">
@@ -143,7 +152,7 @@
                                 </li>
                                 <li class="col-md-12 col-sm-12 col-xs-12">
                                     <a href="#"><img src="img/bag.jpg"></a>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -167,6 +176,7 @@
     <script src="js/lib/jquery-ui/jquery-ui.js"></script>
     <script src="js/lib/jquery-touch/jquery.ui.touch-punch.min.js"></script>
     <script src="js/lib/hammer/hammer.js"></script>
+    <script src="js/lib/hammer/jquery.hammer.js"></script>
     <script src="js/lib/odometer/odometer.js"></script>
     <script src="js/common.js"></script>
     <script src="js/index.js"></script>
@@ -199,6 +209,10 @@
         });*/
         $(".dropdisable").on("shown.bs.dropdown", function(event) {
             $('body').addClass('hightlight-body');
+            $("#mylist li").hammer().on("swipeleft swiperight", function() {
+                removeFromFavorite(this);
+            });
+
         });
         $(".dropdisable").on("hidden.bs.dropdown", function(event) {
             $('body').removeClass('hightlight-body');

@@ -1,164 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Klutter</title>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/theme.css" rel="stylesheet">
-<link rel="stylesheet" href="css/jquery-ui.css">
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body>
-<header id="pageheader">
-  	<a href="#"><img src="img/logo.png"></a>
-  </header>
-<div id="wrapper">
-  
-  <main id="pagecontent"> 
-  <div class="container-fluid">
-  	<div class="row">
-    	<div class="col-md-3 col-sm-6 col-xs-6">
-        	<div class="product-list">
-           	  <img src="img/bag.jpg" class="img-responsive">
-                <div class="product-title">
-                	<span class="favorite"><img src="img/icons/fav_gray.png"></span>
-                    <h5>Leatherman</h5>	
-              </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6">
-        	<div class="product-list">
-           	  <img src="img/bag.jpg" class="img-responsive">
-                <div class="product-title">
-                	<span class="favorite"><img src="img/icons/fav_gray.png"></span>
-                    <h5>Leatherman</h5>	
-              </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6">
-        	<div class="product-list">
-           	  <img src="img/bag.jpg" class="img-responsive">
-                <div class="product-title">
-                	<span class="favorite"><img src="img/icons/fav_gray.png"></span>
-                    <h5>Leatherman</h5>	
-              </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6">
-        	<div class="product-list">
-           	  <img src="img/bag.jpg" class="img-responsive">
-                <div class="product-title">
-                	<span class="favorite"><img src="img/icons/fav_gray.png"></span>
-                    <h5>Leatherman</h5>	
-              </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6">
-        	<div class="product-list">
-           	  <img src="img/bag.jpg" class="img-responsive">
-                <div class="product-title">
-                	<span class="favorite"><img src="img/icons/fav_gray.png"></span>
-                    <h5>Leatherman</h5>	
-              </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6">
-        	<div class="product-list">
-           	  <img src="img/bag.jpg" class="img-responsive">
-                <div class="product-title">
-                	<span class="favorite"><img src="img/icons/fav_gray.png"></span>
-                    <h5>Leatherman</h5>	
-              </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6">
-        	<div class="product-list">
-           	  <img src="img/bag.jpg" class="img-responsive">
-                <div class="product-title">
-                	<span class="favorite"><img src="img/icons/fav_gray.png"></span>
-                    <h5>Leatherman</h5>	
-              </div>
-            </div>
-        </div>
-    </div>
-  </div>
-  	
-  </main>
-</div>
-<footer id="pagefooter">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-4 col-sm-4 col-xs-4">
-        <div class="row">
-        <div class="demo">
-          <div class="btn-group dropdisable">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><img src="img/icons/filter_white.png" width="20" height="25"></button>
-            <ul class="dropdown-menu drop-up" role="menu">              
-              <li><a href="#"><img src="img/icons/rose.png"></a></li>
-              <li><a href="#"><img src="img/icons/headphone.png"></a></li>
-              <li><a href="#"><img src="img/icons/tent.png"></a></li>              
-              <li><a href="#"><img src="img/icons/all.png"></a></li>
-            </ul>
-          </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-4 col-xs-4">
-        <div class="row">
-          <div class="btn-group dropdisable">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><img src="img/icons/fav_white.png" width="28" height="25"></button>
-            <ul class="dropdown-menu drop-up" role="menu">
-              fgfhghf
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-4 col-xs-4">
-        <div class="row">
-          <div class="btn-group dropdisable">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><img src="img/icons/paint_white.png" width="28" height="25"></button>
-            <ul class="dropdown-menu drop-up" role="menu">
-              <div id="flat-slider-vertical-1"></div>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-<script src="js/jquery.min.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/jquery-ui.js"></script> 
-<script>           
-$("#flat-slider-vertical-1")
-    .slider({
-        max: 25,
-        min: 0,
-        range: "min",
-        value: 0,
-        orientation: "vertical"
-    });  
- </script>
-<script>
-$(document).ready(function() {
 
-	 $('.btn-group').on('click', function() {
-            if ($('.btn-group').hasClass('dropdisable')) {
-                $('body').addClass('hightlight-body');
-            } else {
-                $('body').removeClass('hightlight-body');
-            }
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>Price</title>
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery-ui/jquery-ui.css">
+    <link rel="stylesheet" href="css/odometer/odometer.css" />
+    <link rel="stylesheet" href="css/animate/animate.css">
+    <link href="css/theme.css" rel="stylesheet">
+    <script type="text/javascript" src="js/mixpanel/cart_page_male-mix.js"></script>
+</head>
+
+<body>
+    <header id="pageheader">
+        <a href="#"><img src="img/logo.png"></a>
+    </header>
+    <div id="wrapper">
+        <main id="pagecontent">
+            <div class="container-fluid">
+                <div class="row top-margin add-items">
+                    <!--         <div class="add-items">            <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="product-list">
+                            <img src="img/bag.jpg" class="img-responsive">
+                            <div class="product-title">
+                                <span class="favorite"><img src="img/icons/fav_gray.png"></span>
+                                <h5>Leatherman</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="product-list">
+                            <img src="img/bag.jpg" class="img-responsive">
+                            <div class="product-title">
+                                <span class="favorite"><img src="img/icons/fav_gray.png"></span>
+                                <h5>Leatherman</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="product-list">
+                            <img src="img/bag.jpg" class="img-responsive">
+                            <div class="product-title">
+                                <span class="favorite"><img src="img/icons/fav_gray.png"></span>
+                                <h5>Leatherman</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="product-list">
+                            <img src="img/bag.jpg" class="img-responsive">
+                            <div class="product-title">
+                                <span class="favorite"><img src="img/icons/fav_gray.png"></span>
+                                <h5>Leatherman</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="product-list">
+                            <img src="img/bag.jpg" class="img-responsive">
+                            <div class="product-title">
+                                <span class="favorite"><img src="img/icons/fav_gray.png"></span>
+                                <h5>Leatherman</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="product-list">
+                            <img src="img/bag.jpg" class="img-responsive">
+                            <div class="product-title">
+                                <span class="favorite"><img src="img/icons/fav_gray.png"></span>
+                                <h5>Leatherman</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="product-list">
+                            <img src="img/bag.jpg" class="img-responsive">
+                            <div class="product-title">
+                                <span class="favorite"><img src="img/icons/fav_gray.png"></span>
+                                <h5>Leatherman</h5>
+                            </div>
+                        </div>
+                    </div> </div>-->
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer id="pagefooter">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="row">
+                        <div class="demo">
+                            <div class="btn-group dropdisable">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><img src="img/icons/filter_white.png" width="20" height="25"></button>
+                                <ul class="dropdown-menu drop-up product-filter needsclick scrollable-menu-filter" role="menu">
+                                    <li id="googles">
+                                        <a href="#"><img src="img/icons/goggles.png"></a>
+                                    </li>
+                                    <li id="wwatchimg">
+                                        <a href="#"><img src="img/icons/watch.png"></a>
+                                    </li>
+                                    <li id="wdressimg">
+                                        <a href="#"><img src="img/icons/dress.png"></a>
+                                    </li>
+                                    <li id="wring">
+                                        <a href="#"><img src="img/icons/ring.png"></a>
+                                    </li>
+                                    <li id="wbag">
+                                        <a href="#"><img src="img/icons/bag.png"></a>
+                                    </li>
+                                    <li id="wsandal">
+                                        <a href="#"><img src="img/icons/sandal.png"></a>
+                                    </li>
+                                    
+                                    
+                                    
+                                    <li id="maleall">
+                                        <a href="#"><img src="img/icons/all.png"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="row">
+                        <div class="btn-group dropdisable" id="favoritedropdown">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="colord"><img src="img/icons/fav_white.png" width="28" height="25"></button>
+                            <ul class="row dropdown-menu drop-up favorite-filter scrollable-menu-favourite" role="menu" id="mylist">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="row">
+                        <div class="btn-group dropdisable" id="colorDropDown">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="clickforcolor"><img src="img/icons/paint_white.png" width="28" height="25"></button>
+                            <ul class="dropdown-menu drop-up color-filter" role="menu">
+                                <div id="flat-slider-vertical-1"></div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/lib/jquery/jquery.min.js"></script>
+    <script src="js/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="js/lib/jquery-ui/jquery-ui.js"></script>
+    <script src="js/lib/jquery-touch/jquery.ui.touch-punch.min.js"></script>
+    <script src="js/lib/hammer/hammer.js"></script>
+    <script src="js/lib/hammer/jquery.hammer.js"></script>
+    <script src="js/lib/odometer/odometer.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/cart_Page.js"></script>
+    <script>
+    $("#flat-slider-vertical-1")
+        .slider({
+            max: 25,
+            min: 0,
+            range: "min",
+            value: 0,
+            orientation: "vertical"
+        });
+    </script>
+    <script>
+    $(document).ready(function() {
+
+        $(".dropdisable").on("shown.bs.dropdown", function(event) {
+            $('body').addClass('hightlight-body');
+            $("#mylist li").hammer().on("swipeleft swiperight", function() {
+                removeFromFavorite(this);
+            });
+
         });
         $(".dropdisable").on("hidden.bs.dropdown", function(event) {
             $('body').removeClass('hightlight-body');
         });
-	
-});
-</script>
+
+    });
+    </script>
 </body>
+
 </html>
