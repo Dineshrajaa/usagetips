@@ -683,10 +683,15 @@
 	    }
 	    for (var i = 0; i < parsedata[0].products.length; i++) {
 	        var img10, img11;
+	        var v=i+1;
 	        if (parsedata[0].products[i].fields.photo_set.length)
 	            img10 = parsedata[0].products[i].fields.photo_set[0].url_large;
 	        else
-	            img10 = "img/no_img.png";
+	            img10 = parsedata[0].products[i].fields.photo_set[0].url_large || "img/no_img.png";
+	        if (parsedata[0].products[v].fields.photo_set.length)
+	            img10 = parsedata[0].products[v].fields.photo_set[0].url_large;
+	        else
+	            img10 = parsedata[0].products[v].fields.photo_set[0].url_large || "img/no_img.png";
 	        //checking for long text
 	        if (parsedata[0].products[i].fields.description != null && parsedata[0].products[i].fields.description.length > 10) {
 	            var shorttext = trimLong(parsedata[0].products[i].fields.description);
@@ -703,20 +708,39 @@
 	        if (parsedata[0].products[i].fields.description)
 	            console.log("Description available");
 	        else parsedata[0].products[i].fields.description = 'N/A'
-	        $(".add-items").append('<div class="col-md-3 col-sm-6 col-xs-6">' + renderItemNew(i, parsedata[0].products[i], img10) + '</div>');
+
+	        if (parsedata[0].products[v].fields.description != null && parsedata[0].products[v].fields.description.length > 10) {
+	            var shorttext = trimLong(parsedata[0].products[v].fields.description);
+	            parsedata[0].products[v].fields.description = shorttext;
+	        }
+
+	        if (parsedata[0].products[v].fields.brand != null && parsedata[0].products[v].fields.brand.length > 10) {
+	            var shorttext = trimLong(parsedata[0].products[v].fields.brand);
+	            parsedata[0].products[v].fields.brand = shorttext;
+	        }
+	        if (parsedata[0].products[v].fields.brand)
+	            console.log("Brand available");
+	        else parsedata[0].products[v].fields.brand = 'N/A';
+	        if (parsedata[0].products[v].fields.description)
+	            console.log("Description available");
+	        else parsedata[0].products[v].fields.description = 'N/A'
+	        $(".add-items").append('<div class="row"><div class="col-md-3 col-sm-6 col-xs-6">' + renderItemNew(i, parsedata[0].products[i], img10) + '</div><div class="col-md-3 col-sm-6 col-xs-6">' + renderItemNew(v, parsedata[0].products[v], img11) + '</div></div>');
 	    }
 	}
 
 	function renderItemNew(uniqueId, product, imgUrl) {
-	    if (typeof product == 'undefined')
+	    if (typeof product == 'undefined'){
+	    	debugger;
+	    	alert(product);
 	        return "";
+	    }
 	    else {
 	        var productHtml = '<div class="product-list">'; // productlist start
 	        productHtml += '<img src="' + imgUrl + '" class="img-responsive items" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">'; // Product image
 	        productHtml += getModalHTML(uniqueId, product, imgUrl); // Modal html maker call
 	        productHtml += '<div class="product-title">'; // product title start
 	        productHtml += '<span class="favorite"><img src="img/icons/fav_gray.png" class="like" data-favorite="like" data-purchaseurl="' + product.fields.purchase_url + '" id="' + product.fields.id + 'like"></span>'
-	        productHtml += '<h5 data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" data-toggle="modal" data-target="#myModal' + uniqueId + '">'+product.fields.brand+'</h5>'; // product name start & end
+	        productHtml += '<h5 data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" data-toggle="modal" data-target="#myModal' + uniqueId + '">' + product.fields.brand + '</h5>'; // product name start & end
 	        productHtml += '</div>'; // product title end
 	        productHtml += '</div>'; // productlist end
 	        return productHtml;
@@ -1184,6 +1208,7 @@
 
 	            loadprofNew("false");
 	            fetchFavorites(); //Load the favorites
+	            var parsedata = JSON.parse(localStorage.getItem('itemdata'));
 	            console.log(JSON.stringify(parsedata[0].paginator))
 	            if (parsedata[0].paginator.has_next)
 	                hasnext = true;

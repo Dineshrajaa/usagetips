@@ -5,19 +5,19 @@ html, body { height: 100%; }
 
 #pageheader { background:#000; height:auto; text-align:center; padding:10px 0; position: fixed; top: 0; left: 0; width: 100%; z-index: 999; }
 
-#pagecontent .product-list { border:1px solid #ccc; margin-bottom:30px; }
-#pagecontent .product-list .product-title { position:relative; padding:13px 10px 13px 30px; }
-#pagecontent .product-list .product-title .favorite { position:absolute; left:10px; top:10px; }
-#pagecontent .product-list .product-title h5 { text-align:right; margin:0; }
+#pagecontent .product-list { border:1px solid #EAEAEA; padding:8px; }
+#pagecontent .product-list .product-title { position:relative; width:100%; padding:13px 10px 0px 30px; }
+#pagecontent .product-list .product-title .favorite { position:absolute; left:0px; top:10px; }
+#pagecontent .product-list .product-title h5 { text-align:right; margin:0; font-size:18px; color:#656565; }
 
-#pagefooter { height: 40px; background-color: #ffff; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999; }
+#pagefooter { height: 40px; background-color: #000; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999; }
 #pagefooter .caret-up { -webkit-transform: rotate(-180deg); -moz-transform: rotate(-180deg); -ms-transform: rotate(-180deg); -o-transform: rotate(-180deg);    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=6); }
 #pagefooter .drop-up { top: auto; right:0; bottom: 100% !important; text-align:center; }
-#pagefooter .drop-up.product-filter { width: 100px; margin: 0 auto; padding:20px; }
-#pagefooter .drop-up.color-filter { width: 80px; margin: 0 auto; padding:20px; }
-#pagefooter .drop-up.favorite-filter { height: 350px; overflow-y:scroll; }
+#pagefooter .drop-up.product-filter { width: 80px; margin: 0 auto; padding:20px 15px; }
+#pagefooter .drop-up.color-filter { width: 80px; height: 380px; margin: 0 auto; padding:20px; }
+#pagefooter .drop-up.favorite-filter { width: 80px; height: 370px; overflow-y:scroll; }
 #pagefooter .drop-up.favorite-filter img { width:100%; }
-#pagefooter .drop-up li { margin-bottom:20px; border-bottom: 1px solid #F1F1F1; padding-bottom: 20px; }
+#pagefooter .drop-up li { margin-bottom:15px; padding-bottom: 15px; }
 #pagefooter .drop-up li:last-child { margin-bottom:0; }
 #pagefooter .drop-up.favorite-filter li { border-bottom:0; margin:0; }
 #pagefooter .dropdown-menu { min-width: inherit; }
@@ -28,7 +28,7 @@ html, body { height: 100%; }
 #pagefooter .btn-group button:hover img { opacity:1; }
 #pagefooter .btn-group.open .dropdown-toggle, #pagefooter .open>.dropdown-toggle.btn-default:focus { -webkit-box-shadow:none; box-shadow: none; border-radius:0; }
 
-#flat-slider-vertical-1.ui-widget-content { position:relative; background:url(../img/bar-color.png) no-repeat center top; background-size: cover; width:20px; height: 200px; margin: 0 auto; }
+#flat-slider-vertical-1.ui-widget-content { position:relative; background:url(../img/bar-color.png) no-repeat center top; background-size: cover; width:20px; height: 340px; margin: 0 auto; }
 #flat-slider-vertical-1 .ui-widget-header { background:none; }
 #flat-slider-vertical-1.ui-widget-content .ui-slider-handle { left: inherit; right: -9px; /*background: url(../img/moving-arrow.png) no-repeat right center; background-size: 84%;*/ background:#000; width: 35px; height:2px; margin:0; outline: none; border: 0; }
 
@@ -37,3 +37,11 @@ html, body { height: 100%; }
 .login-container .price-logo { width:100% }
 .login-container .tagline { margin:15px 0; color: #000; font-size: 13px; padding: 5px 1px 0; text-align: center; font-weight: bold; letter-spacing: 1px; }
 .login-container .login-text { margin:15px 0 0 0; text-align: center; font-size: 15px; font-weight: bold; color: #000; letter-spacing: 2px; }
+
+@media only screen and (max-height: 480px) {
+	#pagefooter .drop-up.product-filter { overflow-y:scroll; }
+	#pagefooter .drop-up.product-filter, #pagefooter .drop-up.favorite-filter, #pagefooter .drop-up.color-filter { height:280px; }
+	#flat-slider-vertical-1.ui-widget-content { height: 240px; }
+	#pagecontent .product-list .product-title h5 { font-size:15px; }
+	#pagecontent .product-list .product-title .favorite img { width:70%; }
+}
