@@ -331,7 +331,7 @@
 	                console.log(cat);
 
 	            } else {
-	                cat = "";
+	                cat = "all";
 
 
 
@@ -350,12 +350,12 @@
 	                console.log(cat);
 
 	            } else if (id == 'gadgetimg') {
-	                cat = 'gagets' //old
+	                cat = 'gadgets' //old
 	                console.log(cat);
 
 
 	            } else if (id == 'cycleimg') {
-	                cat = 'outdoorgear' //old
+	                cat = 'outdoor' //old
 	                console.log(cat);
 
 	            } else if (id == 'watchimg') {
@@ -366,7 +366,7 @@
 	                cat = 'sunglasses';
 	            } else {
 
-	                cat = ""; //old
+	                cat = "all"; //old
 
 	            }
 
