@@ -11,6 +11,7 @@
 
 	        }
 	    });
+
 	    function filterBasedOnCategory(cat) {
 	        $.ajax({
 	            type: 'GET',
@@ -296,155 +297,220 @@
 
 
 
-	    	    $(".needsclick").on("click", "li", function(event) {
-	    	        console.log("dropdown-menu id:" + $(this).attr('id'));
-	    	        var id = $(this).attr('id');
+	    $(".needsclick").on("click", "li", function(event) {
+	        console.log("dropdown-menu id:" + $(this).attr('id'));
+	        var id = $(this).attr('id');
 
 
-	    	        categoryitemclicked = true
-	    	        page_no = 1;
-	    	        if (userdata.fbGender == 'female') {
-	    	            type = 'female'
-	    	            if (id == 'googles') {
-	    	                cat = 'sunglasses' //req
-	    	                console.log(cat);
+	        categoryitemclicked = true
+	        page_no = 1;
+	        if (userdata.fbGender == 'female') {
+	            type = 'female'
+	            if (id == 'googles') {
+	                cat = 'sunglasses' //req
+	                console.log(cat);
 
-	    	            } else if (id == 'wwatchimg') {
-	    	                cat = 'watches' //changed
+	            } else if (id == 'wwatchimg') {
+	                cat = 'watches' //changed
 
 
-	    	            } else if (id == 'wdressimg') {
-	    	                cat = 'clothing' // req
-	    	                console.log(cat);
+	            } else if (id == 'wdressimg') {
+	                cat = 'clothing' // req
+	                console.log(cat);
 
-	    	            } else if (id == 'wring') {
-	    	                cat = 'jewelry' //change
-	    	                console.log(cat);
+	            } else if (id == 'wring') {
+	                cat = 'jewelry' //change
+	                console.log(cat);
 
-	    	            } 
-	    	            else if (id == 'wbag') {
-	    	                cat = 'bags' //change
-	    	                console.log(cat);
+	            } else if (id == 'wbag') {
+	                cat = 'bags' //change
+	                console.log(cat);
 
-	    	            }
-	    	            else if (id == 'wsandal') {
-	    	                cat = 'shoes' //change
-	    	                console.log(cat);
+	            } else if (id == 'wsandal') {
+	                cat = 'shoes' //change
+	                console.log(cat);
 
-	    	            }else {
-	    	                cat = "";
+	            } else {
+	                cat = "";
 
 
 
 
 
-	    	            }
-	    	        } else {
-	    	            type = 'male'
-	    	                //alert('else')
-	    	            if (id == 'shirtimg') {
-	    	                cat = 'clothing' //changed
-	    	                console.log(cat);
+	            }
+	        } else {
+	            type = 'male'
+	                //alert('else')
+	            if (id == 'shirtimg') {
+	                cat = 'clothing' //changed
+	                console.log(cat);
 
-	    	            } else if (id == 'watchimg') {
-	    	                cat = 'flowers' //changed
-	    	                console.log(cat);
+	            } else if (id == 'watchimg') {
+	                cat = 'flowers' //changed
+	                console.log(cat);
 
-	    	            } else if (id == 'gadgetimg') {
-	    	                cat = 'gagets' //old
-	    	                console.log(cat);
-
-
-	    	            } else if (id == 'cycleimg') {
-	    	                cat = 'outdoorgear' //old
-	    	                console.log(cat);
-
-	    	            }else if(id=='watchimg'){
-	    	            	cat='watches'
-	    	            }else if(id=='shoeimg'){
-	    	            	cat='shoes';
-	    	            }else if(id=='mensgoogles'){
-	    	            	cat='sunglasses';
-	    	            }
-	    	             else {
-
-	    	                cat = ""; //old
-
-	    	            }
+	            } else if (id == 'gadgetimg') {
+	                cat = 'gagets' //old
+	                console.log(cat);
 
 
+	            } else if (id == 'cycleimg') {
+	                cat = 'outdoorgear' //old
+	                console.log(cat);
 
-	    	        }
-	    	        $.ajax({
-	    	            type: 'GET',
-	    	            url: "http://staging12.getpriceapp.com/item/list/",
-	    	            beforeSend: function() {
-	    	                console.log('ajaxstart');
-	    	                $body.addClass("loading");
-	    	            },
-	    	            complete: function() {
-	    	                //alert('ajaxstopp')
-	    	                $body.removeClass("loading");
+	            } else if (id == 'watchimg') {
+	                cat = 'watches'
+	            } else if (id == 'shoeimg') {
+	                cat = 'shoes';
+	            } else if (id == 'mensgoogles') {
+	                cat = 'sunglasses';
+	            } else {
 
-	    	            },
-	    	            contentType: "application/json",
-	    	            dataType: "json",
-	    	            data: {
-	    	                "category": cat,
-	    	                "page": page_no,
-	    	                "show_by": 10,
-	    	                'type': type
+	                cat = ""; //old
 
-	    	            },
-	    	            success: function(data) {
-	    	                //alert(JSON.stringify(data));
+	            }
 
-	    	                console.log('insidesucees');
-	    	                var getitemdata = JSON.stringify(data);
-	    	                console.log(JSON.stringify(data));
-	    	                localStorage.setItem('itemdata', '');
-	    	                localStorage.setItem('itemdata', getitemdata);
-	    	                var parsedata = JSON.parse(localStorage.getItem('itemdata'));
-	    	                console.log(JSON.stringify(parsedata[0].paginator))
-	    	                console.log('329')
-	    	                if (parsedata[0].paginator.has_next)
-	    	                    hasnext = true;
 
-	    	                if (parsedata[0].products.length) {
-	    	                    console.log('calling load prof from windows ');
-	    	                    loadprof("false");
-	    	                    fetchFavorites(); //Load the favorites
-	    	                } else {
-	    	                    $('.add-items').html('');
-	    	                    mwidth = $(window).width();
-	    	                    mheight = $('body').height()
 
-	    	                    //$('.add-items').css({"height":mheight });
-	    	                    //$('.add-items').css({"width":mwidth });
-	    	                    $('.add-items').append('<div class="jumbotron">\
+	        }
+	        $.ajax({
+	            type: 'GET',
+	            url: "http://staging12.getpriceapp.com/item/list/",
+	            beforeSend: function() {
+	                console.log('ajaxstart');
+	                $body.addClass("loading");
+	            },
+	            complete: function() {
+	                //alert('ajaxstopp')
+	                $body.removeClass("loading");
+
+	            },
+	            contentType: "application/json",
+	            dataType: "json",
+	            data: {
+	                "category": cat,
+	                "page": page_no,
+	                "show_by": 10,
+	                'type': type
+
+	            },
+	            success: function(data) {
+	                //alert(JSON.stringify(data));
+
+	                console.log('insidesucees');
+	                var getitemdata = JSON.stringify(data);
+	                console.log(JSON.stringify(data));
+	                localStorage.setItem('itemdata', '');
+	                localStorage.setItem('itemdata', getitemdata);
+	                var parsedata = JSON.parse(localStorage.getItem('itemdata'));
+	                console.log(JSON.stringify(parsedata[0].paginator))
+	                console.log('329')
+	                if (parsedata[0].paginator.has_next)
+	                    hasnext = true;
+
+	                if (parsedata[0].products.length) {
+	                    console.log('calling load prof from windows ');
+	                    loadprof("false");
+	                    fetchFavorites(); //Load the favorites
+	                } else {
+	                    $('.add-items').html('');
+	                    mwidth = $(window).width();
+	                    mheight = $('body').height()
+
+	                    //$('.add-items').css({"height":mheight });
+	                    //$('.add-items').css({"width":mwidth });
+	                    $('.add-items').append('<div class="jumbotron">\
 	    			<h1>No Data Available</h1> </div>')
 
 
-	    	                }
+	                }
 
-	    	            },
+	            },
 
-	    	            error: function(xhr, status, error) {
-	    	                console.log(xhr);
-	    	            }
-
-
-	    	        }); //end of ajax call 
+	            error: function(xhr, status, error) {
+	                console.log(xhr);
+	            }
 
 
+	        }); //end of ajax call 
 
 
 
 
-	    	    });
+
+
+	    });
 
 	    //add to fav on click of like button 
+	    /*function addToFavorite(addedItem) {
+	        console.log('inside like:' + $(addedItem).data("favorite"));
+	        //var proid = parseInt(e.target.id);
+	        var proid = parseInt($(this).attr("id"));
+	        //var propicid = e.target.id;
+	        var propicid=$(addedItem).attr("id");
+	        if ($(addedItem).data("favorite") == "like") {
+	            var purchaseurl = $(addedItem).data("purchaseurl");
+	            $(addedItem).data("favorite", "liked");
+	            $(addedItem).attr("src", "img/liked.png");
+	            $.ajax({
+	                url: "http://staging12.getpriceapp.com/favourites/add",
+	                data: {
+	                    'item': proid,
+	                    'user': localStorage.getItem('tokenid')
+	                },
+	                type: "POST",
+	                dataType: "json",
+	                success: function(response) {
+	                    console.log(response);
+	                    console.log(JSON.stringify(response));
+	                    console.log(proid);
+	                    var srcimg = $("#" + proid).attr('src')
+	                    console.warn(srcimg);
+	                    var removefavid = response.pk;
+	                    var favObject = {
+	                        itemThumbURL: srcimg,
+	                        itemStoreLink: purchaseurl,
+	                        pk: removefavid,
+	                        likebtnid: propicid
+	                    };
+	                    $('.scrollable-menu-favourite').append(getFavoritesHTML(favObject));
+	                    console.log("Successss - adding " + removefavid);
+	                    if ($('.scrollable-menu-favourite li').length > 0) {
+	                        $("#favoritedropdown .dropdown-toggle").removeClass("disabled");
+	                    }
 
+	                },
+	                error: function() {
+	                    console.log("No JSON data returned");
+	                }
+	            });
+	        } else {
+	            
+	            $(addedItem).attr("src", "img/like.png");
+	            $(addedItem).data("favorite", "like");
+	            $.ajax({
+	                url: "http://staging12.getpriceapp.com/favourites/delete",
+	                data: {
+	                    'id': proid,
+	                    'user': localStorage.getItem('tokenid')
+	                },
+	                type: "POST",
+	                dataType: "json",
+	                success: function() {
+	                    var rmdivid = propicid + 'div';
+	                    console.log("Successss " + rmdivid);
+	                    $("#" + rmdivid).remove();
+
+	                    if ($('.scrollable-menu-favourite li').length < 1) {
+	                        $("#favoritedropdown .dropdown-toggle").addClass("disabled");
+	                    }
+	                },
+	                error: function() {
+	                    console.log("No JSON data returned");
+	                }
+	            });
+	        }
+	    }*/
 
 	    $(document).on('click', '.like', function(e) {
 
@@ -488,12 +554,7 @@
 	                }
 	            });
 	        } else {
-	            /*console.log("Already Liked");
-	            window.plugins.toast.showLongBottom('Already in your favorites list', function(a) {
-	            	console.log('toast success: ' + a)
-	            }, function(b) {
-	            	alert('toast error: ' + b)
-	            })*/
+	            
 	            $(this).attr("src", "img/like.png");
 	            $(this).data("favorite", "like");
 	            $.ajax({
@@ -816,7 +877,7 @@
 	        productHtml += '<img src="' + imgUrl + '" class="img-responsive items" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">'; // Product image
 	        productHtml += getModalHTML(uniqueId, product, imgUrl); // Modal html maker call
 	        productHtml += '<div class="product-title">'; // product title start
-	        productHtml += '<span class="favorite"><img src="img/icons/fav_gray.png" class="like" data-favorite="like" data-purchaseurl="' + product.fields.purchase_url + '" id="' + product.fields.id + 'like"></span>'
+	        productHtml += '<p class="favorite"><img src="img/icons/fav_gray.png" class="like" data-favorite="like" data-purchaseurl="' + product.fields.purchase_url + '" id="' + product.fields.id + 'like"></p>'
 	        productHtml += '<h5 data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" data-toggle="modal" data-target="#myModal' + uniqueId + '">' + product.fields.brand + '</h5>'; // product name start & end
 	        productHtml += '</div>'; // product title end
 	        productHtml += '</div>'; // productlist end
@@ -1194,7 +1255,7 @@
 	    var modalPosition = modalBody.position();
 	    console.warn(modalPosition);
 	    //$('.carousel-inner .item:first').addClass('active');
-	    imagex.css({
+	    /*imagex.css({
 	        "position": "absolute",
 	        "left": function() {
 	            if ($(e.target).parent().hasClass('left-padding')) {
@@ -1206,7 +1267,7 @@
 	        "top": function() {
 	            return (modalPosition.top + 20) + "px"
 	        }
-	    });
+	    });*/
 
 	    imagex.fadeIn("fast");
 	    console.log(index);

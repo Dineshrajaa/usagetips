@@ -20,8 +20,8 @@
 
 html, body { height: 100%; }
 #wrapper { min-height: 100%; height: auto; margin:0 auto; padding: 47px 0 40px; }
-.hightlight-body { overflow-y: hidden; }
-.hightlight-body #wrapper:after { content:''; position:fixed; top:0; bottom:0; left:0; right:0; width:100%; height:100%; background: rgba(0, 0, 0,0.5) url(../img/icons/close.png) no-repeat calc(100% - 30px) 80px; cursor: pointer; }
+.hightlight-body { overflow: hidden; }
+.hightlight-body #wrapper:after { content:''; position:fixed; top:0; bottom:0; left:0; right:0; width:100%; height:100%; background: rgba(0, 0, 0,0.8) url(../img/icons/close.png) no-repeat calc(100% - 30px) 80px; cursor: pointer; }
 
 #pageheader { background:#000; height:auto; text-align:center; padding:10px 0; position: fixed; top: 0; left: 0; width: 100%; z-index: 999; }
 
@@ -68,9 +68,11 @@ html, body { height: 100%; }
 #pagecontent .product-right-padding {
  padding-right:8px;
 }
-
-.modal-content { padding: 20px; border-radius: 0; width:400px; }
-.modal-dialog { margin:0;  bottom: 40px; margin: auto; left: 50px; position: absolute; height: inherit; }
+/*.modal { background: url(../img/icons/close.png) no-repeat 96% 80px; } */
+.modal-backdrop.in { filter: alpha(opacity=80); opacity: .8;
+}
+.modal-content { padding: 20px; border-radius: 0; width:100%; }
+.modal-dialog { width:90%; margin:0;  bottom: 40px; margin: auto; left: 50px; position: absolute; height: inherit; }
 .modal-content-inner {  }
 .carousel-indicators { position:static; width:100%; left:0; margin-left:0; margin:10px 0; }
 .carousel-indicators li { background:#CECECE; width:10px; height:10px; border:2px solid #B1B1B1; }
@@ -82,13 +84,13 @@ html, body { height: 100%; }
 .pro-popup-details .price-style span { display:block; }
 .pro-popup-details .buynow { display:inline-block; width:100%; }
 .pro-popup-details .buynow a { display:inline-block; width:100%; background:#000; font-size:17px; color:#fff; text-decoration:none; border-radius: 8px; padding:8px 20px;}
-.pro-popup-details .buynow a .bleft { float:left; }
-.pro-popup-details .buynow a .bright { float:right; }
+.buy-button-amazon .bleft { float:left; }
+.buy-button-amazon .bright { float:right; }
 .popup-price  { font-size:14px !important; vertical-align:-7px !important;}
 
 @media only screen and (max-width: 800px) {
 #pagefooter .drop-up.favorite-filter { width: 280px; margin-left: -50%; }
-.modal-content { width: 300px; }
+.modal-dialog { width: 85%; }
 .pro-popup-details h3 { font-size: 20px; line-height: 30px; }
 .pro-popup-details p { font-size: 11px; line-height: 12px; float:left; }
 .pro-popup-details .price-style { font-size:20px; line-height:30px; }
@@ -110,19 +112,24 @@ html, body { height: 100%; }
 	.pro-popup-details h3 { font-size: 16px; line-height: 25px; }
 	.pro-popup-details p { font-size: 12px; line-height: 18px; }
 	.pro-popup-details .price-style { font-size:18px; line-height:25px; }
+	.discounted-price-in-pop-up { font-size:18px; }
+	.modal-dialog { width: 75%; }
 }
-@media only screen and (max-height: 1024px) {
+@media only screen and (max-width: 320px) {
+	
+}
+/*@media only screen and (max-height: 1024px) {
 	.modal-content { width:600px; }	
 }
 @media only screen and (max-height: 600px) {
 	.modal-content { width:230px; }		
 }
 @media only screen and (max-height: 800px) {
-	.modal-content { width:260px; }		
+	.modal-content { width:460px; }		
 }
 @media only screen and (max-height: 480px) {
 	.modal-content { width:230px; }	
-}
+}*/
 
 .modal-content  {
  margin-top:50px !important;
@@ -145,10 +152,12 @@ html, body { height: 100%; }
 	}
 	
 .discounted-price-in-pop-up  {
-	  font-size:28px; color:#000; text-align:center; margin-top:-14px;
+	  color:#000; text-align:center; margin-top:-14px;
 	  font-family: 'Avenir Next Bold';
 	  font-weight:bold;
 	  color:#000;
+	 /* display: inline;
+	  position: fixed;*/
 	}
 	
 	.saved-text-in-popup  {
@@ -158,14 +167,14 @@ html, body { height: 100%; }
 	}
 
 	.saved-amount-in-popup  {
-	  font-size:14px; margin-top:-11px; text-align:right; margin-left:-21px;
+	  font-size:14px; margin-top:-11px; text-align:right; margin-left:-7px;
 	  font-family: 'Avenir Next Medium';
 	}
 	
 .buy-button-amazon  {
 	  margin-top:3px; margin-bottom:6px; 
 	  color:#fff; background-color:#000; 
-	  font-size:16px ; 
+	  font-size:12px ; 
 	  font-family: 'Avenir Next Medium';
 	  padding: 7px 10px 8px 12px; border-radius:8px;
 	  text-align:left;
