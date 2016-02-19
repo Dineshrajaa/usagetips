@@ -85,7 +85,7 @@
 	    var pk = '';
 	    page_no = 1;
 	    $body = $("body");
-	    cat = ""
+	    cat = "all"
 	    type = ''
 	    color = ''
 	    hasnext = false
@@ -116,14 +116,14 @@
 	    }
 
 	    if (userdata.fbGender == 'female') {
-	        cat = "";
+	        cat = "all";
 	        //cat = 'bags';
 	        type = 'female'
 	            //ajax call without color filter
 	        makeAjaxcall();
 
 	    } else {
-	        cat = "";
+	        cat = "all";
 	        type = 'male'
 	        makeAjaxcall();
 	    }
@@ -221,7 +221,7 @@
 	    });*/
 	    //add to cart 
 	    $(document).on('click', '.app-logo-in-popup', function() {
-	        cat = ""
+	        cat = "all"
 	        $('.add-items').html('');
 	        makeAjaxcall()
 
@@ -234,7 +234,7 @@
 
 	    });
 	    $(document).on('click', '.app-logo-in-popup', function() {
-	        cat = ""
+	        cat = "all"
 	        $('.add-items').html('');
 	        makeAjaxcall()
 
@@ -346,7 +346,7 @@
 	                console.log(cat);
 
 	            } else if (id == 'watchimg') {
-	                cat = 'flowers' //changed
+	                cat = 'watches' //changed
 	                console.log(cat);
 
 	            } else if (id == 'gadgetimg') {
@@ -1205,7 +1205,7 @@
 
 	});
 	/*To disable scroll when color picker is shown*/
-	$('#colorDropDown,#favoritedropdown').on('hidden.bs.dropdown', function() {
+	$('#colorDropDown,#favoritedropdown,#filterDropdown').on('hidden.bs.dropdown', function() {
 	    scrollPos = 0;
 	    $('body').css({
 	        overflow: '',
@@ -1214,7 +1214,7 @@
 	    }).scrollTop(scrollPos);
 	});
 	/*To enable scroll when color picker is hided*/
-	$('#colorDropDown,#favoritedropdown').on('shown.bs.dropdown', function() {
+	$('#colorDropDown,#favoritedropdown,#filterDropdown').on('shown.bs.dropdown', function() {
 	    // var scrollPos = 0;
 	    scrollPos = $('body').scrollTop();
 	    $('body').css({
