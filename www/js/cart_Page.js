@@ -618,47 +618,47 @@
 	                    $(".shopname").animateCss("flipOutX");
 	                }, 500);*/
 	    setTimeout(function() {
-	        od.update((realValue - 1).replace('-',''));
+	        od.update((realValue - 1));
 	        $(".shopname").text("Tradsey.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1100);
 	    setTimeout(function() {
-	        od.update((realValue - 2).replace('-',''));
+	        od.update((realValue - 2));
 	        $(".shopname").text("Oodle.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1400);
 	    setTimeout(function() {
-	        od.update((realValue - 3).replace('-',''));
+	        od.update((realValue - 3));
 	        $(".shopname").text("Nordtroms.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1600);
 	    setTimeout(function() {
-	        od.update((realValue - 4).replace('-',''));
+	        od.update((realValue - 4));
 	        $(".shopname").text("Cabelas.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1800);
 	    setTimeout(function() {
-	        od.update((realValue - 5).replace('-',''));
+	        od.update((realValue - 5));
 	        $(".shopname").text("Sportsauthority.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2000);
 	    setTimeout(function() {
-	        od.update((realValue - 6).replace('-',''));
+	        od.update((realValue - 6));
 	        $(".shopname").text("Ebay.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2300);
 	    setTimeout(function() {
-	        od.update((realValue - 7).replace('-',''));
+	        od.update((realValue - 7));
 	        $(".shopname").text("TheRealReal.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2600);
 	    setTimeout(function() {
-	        od.update((realValue - 8).replace('-',''));
+	        od.update((realValue - 8));
 	        $(".shopname").text("Etsy.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2900);
 	    setTimeout(function() {
-	        od.update((realValue - 9).replace('-',''));
+	        od.update((realValue - 9));
 	        $(".shopname").text("Overstock.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 3200);
