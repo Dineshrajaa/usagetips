@@ -725,8 +725,9 @@
 
 	        od.update(realValue);
 	        $(".shopname").text(localStorage.finalStoreName);
-	        $(".saved-amount_price_item").text(localStorage.savedPrice);
+	        
 	    }, 3500);
+	    $(".saved-amount_price_item").text(localStorage.savedPrice);
 	    return false;
 	}
 
