@@ -111,7 +111,9 @@
 	            localStorage.choosedGender = "both";
 	        cat = "all";
 	        makeAjaxcall();
-	        $("body").toggleClass("hightlight-body");
+	        //$("body").toggleClass("hightlight-body");
+	        $('#profileBtn').click();
+	        $("#userDropDown").click();
 	    });
 	    $("#femaleSwitch").on("change", function() {
 	        var femaleChecked = $(this).prop("checked");
@@ -129,7 +131,9 @@
 	            localStorage.choosedGender = "both";
 	        cat = "all";
 	        makeAjaxcall();
-	        $("body").toggleClass("hightlight-body");
+	        //$("body").toggleClass("hightlight-body");
+	        $('#profileBtn').click();
+	        $("#userDropDown").click();
 	    });
 
 	    var scrollPos = 0; // variable for enabling & disabling scroll
@@ -243,7 +247,7 @@
 	        $("#myModal" + index).find(".product-name-in-popup").text('');
 	        $("#myModal" + index).find(".retail_price_item").text('')
 	        $("#myModal" + index).find(".odometer").text('')
-	            //$("#myModal" + index).find(".saved-amount_price_item").text('')
+	        $("#myModal" + index).find(".saved-amount_price_item").text('')
 	        $("#myModal" + index).find(".buy-button-amazon").attr('data-purchaseurl', '');
 	        jQuery(var1).modal('show');
 
@@ -724,10 +728,11 @@
 	    setTimeout(function() {
 
 	        od.update(realValue);
-	        $(".shopname").text(localStorage.finalStoreName);
 
+	        $(".shopname").text(localStorage.finalStoreName);
+	        $(".saved-amount_price_item").text(localStorage.savedPrice);
 	    }, 3500);
-	    $(".saved-amount_price_item").text(localStorage.savedPrice);
+
 	    return false;
 	}
 
@@ -855,10 +860,10 @@
 	            //$' + parseFloat(product.fields.price - product.fields.price_sold).toFixed(2) + '
 	            if (modalprice_sold < modalprice) {
 	                localStorage.savedPrice = parseFloat(modalprice - modalprice_sold).toFixed(2);
-	                $("#" + carId).find(".saved-amount_price_item").text(parseFloat(modalprice - modalprice_sold).toFixed(2));
+	                //$("#" + carId).find(".saved-amount_price_item").text(parseFloat(modalprice - modalprice_sold).toFixed(2));
 	            } else {
 	                localStorage.savedPrice = 0.00;
-	                $("#" + carId).find(".saved-amount_price_item").text('0.00');
+	                //$("#" + carId).find(".saved-amount_price_item").text('0.00');
 
 	            }
 	            $("#" + carId).find(".buy-button-amazon").attr('data-purchaseurl', moda_purchaseURL);
@@ -1788,6 +1793,6 @@
 	    $("#myModal" + cleardataId).find(".product-name-in-popup").text('');
 	    $("#myModal" + cleardataId).find(".retail_price_item").text('');
 	    $("#myModal" + cleardataId).find(".odometer").text('');
-	    //$("#myModal" + cleardataId).find(".saved-amount_price_item").text('');
+	    $("#myModal" + cleardataId).find(".saved-amount_price_item").text('');
 	    $("#myModal" + cleardataId).find(".buy-button-amazon").attr('data-purchaseurl', '');
 	}
