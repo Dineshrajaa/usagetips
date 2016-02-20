@@ -45,11 +45,11 @@
 	        manageGender();
         });*/
 
-		$("#profileBtn").click(function(){
+		$("#userDropDown").click(function(){
 			$('.user-filter').toggle();
 		});
 	    $('#wrapper').click(function(e) {
-	        //$('#userTypeList').hide();
+	        $('#userTypeList').hide();
 	        $('body').removeClass('hightlight-body');
 
 	    });
@@ -425,6 +425,8 @@
 
 	        }
 	        cat=$(this).data("cat");
+	        	if(cat=="all" && localStorage.choosedGender=="both")
+	        		cat="";
 	        $.ajax({
 	            type: 'GET',
 	            url: "http://staging12.getpriceapp.com/item/list/",
