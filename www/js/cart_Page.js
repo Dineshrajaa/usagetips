@@ -47,12 +47,13 @@
 
 		$("#userDropDown").click(function(){
 			$('.user-filter').toggle();
+			
 		});
-	    $('#wrapper').click(function(e) {
+	    /*$('#wrapper').click(function(e) {
 	        $('#userTypeList').hide();
 	        $('body').removeClass('hightlight-body');
 
-	    });
+	    });*/
 
 	    function manageCategories() {
 	        // Method to show or hide Male and Female categories based on the prefered gender
@@ -89,6 +90,7 @@
 	            console.log("Both");
 	            $("#maleSwitch,#femaleSwitch").prop("checked", "true");
 	        }
+
 	        // }
 	    }
 
@@ -107,8 +109,9 @@
 	        }
 	        if (maleChecked && localStorage.type == "female" && femaleToo)
 	            localStorage.choosedGender = "both";
-
-
+	        cat="all";
+	        makeAjaxcall();
+	        $("body").toggleClass("hightlight-body");
 	    });
 	    $("#femaleSwitch").on("change", function() {
 	        var femaleChecked = $(this).prop("checked");
@@ -124,6 +127,9 @@
 	        }
 	        if (femaleChecked && localStorage.type == "male" && maleToo)
 	            localStorage.choosedGender = "both";
+	        cat="all";
+	        makeAjaxcall();
+	        $("body").toggleClass("hightlight-body");
 	    });
 
 	    var scrollPos = 0; // variable for enabling & disabling scroll
@@ -719,6 +725,7 @@
 
 	        od.update(realValue);
 	        $(".shopname").text(localStorage.finalStoreName);
+	        $(".saved-amount_price_item").text(localStorage.savedPrice);
 	    }, 3500);
 	    return false;
 	}
@@ -846,10 +853,11 @@
 
 	            //$' + parseFloat(product.fields.price - product.fields.price_sold).toFixed(2) + '
 	            if (modalprice_sold < modalprice)
-	                $("#" + carId).find(".saved-amount_price_item").text(parseFloat(modalprice - modalprice_sold).toFixed(2));
+	            	localStorage.savedPrice=parseFloat(modalprice - modalprice_sold).toFixed(2);
+	                // $("#" + carId).find(".saved-amount_price_item").text(parseFloat(modalprice - modalprice_sold).toFixed(2));
 	            else {
-
-	                $("#" + carId).find(".saved-amount_price_item").text('0.00');
+	            	localStorage.savedPrice=0.00;
+	                // $("#" + carId).find(".saved-amount_price_item").text('0.00');
 
 	            }
 	            $("#" + carId).find(".buy-button-amazon").attr('data-purchaseurl', moda_purchaseURL);
@@ -1111,7 +1119,7 @@
 	    modalHtml += '<div class="row product-detail-top-margin-in-popup">'; // product detail row start
 	    modalHtml += '<div class="col-xs-3"><p class="retail-text-in-popup">RETAIL </p><p class="retail-price-in-popup"><span>$</span><span class="retail_price_item"></span></p></div>';
 	    modalHtml += '<div class="col-xs-6 "><p class="discounted-price-in-pop-up"><span>$</span><span class="odometer"></span><span class="hidden hidden_real_price">' + parseFloat(product.fields.price_sold).toFixed(2) + '</span></p></div>';
-	    modalHtml += '<div class="col-xs-3"><p class="saved-text-in-popup">SAVED </p><p class="saved-amount-in-popup"><span>$</span><span class="saved-amount_price_item"></span></p></div>';
+	    modalHtml += '<div class="col-xs-3"><p class="saved-text-in-popup">SAVED </p><p class="saved-amount-in-popup"><span>$</span><span class="saved-amount_price_item">0.00</span></p></div>';
 	    modalHtml += '</div>'; // product detail row end
 	    modalHtml += '<div class="row" style="padding-right:10px; padding-left:10px">';
 	    modalHtml += '<div class="col-xs-12" >';
@@ -1541,6 +1549,8 @@
 	}
 
 	function makeAjaxcall() {
+		if(cat=="all" && localStorage.choosedGender=="both")
+			cat="";
 	    $('.add-items').html('')
 	    $.ajax({
 	        type: 'GET',
