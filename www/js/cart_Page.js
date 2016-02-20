@@ -51,7 +51,8 @@
 	                if (parsedata[0].products.length) {
 	                    console.log('calling load prof from windows ');
 	                    loadprof("false");
-	                    fetchFavorites(); //Load the favorites
+						//commenting fav
+	                   // fetchFavorites(); //Load the favorites
 	                } else {
 	                    $('.add-items').html('');
 	                    mwidth = $(window).width();
@@ -411,7 +412,7 @@
 	                if (parsedata[0].products.length) {
 	                    console.log('calling load prof from windows ');
 	                    loadprof("false");
-	                    fetchFavorites(); //Load the favorites
+	                    //fetchFavorites(); //Load the favorites
 	                } else {
 	                    $('.add-items').html('');
 	                    mwidth = $(window).width();
@@ -874,7 +875,7 @@
 	        return "";
 	    } else {
 	        var productHtml = '<div class="product-list">'; // productlist start
-	        productHtml += '<img src="' + imgUrl + '" class="img-responsive items" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">'; // Product image
+	        productHtml += '<img src="' + imgUrl + '" class="img-responsive items feedpic" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">'; // Product image
 	        productHtml += getModalHTML(uniqueId, product, imgUrl); // Modal html maker call
 	        productHtml += '<div class="product-title">'; // product title start
 	        productHtml += '<p class="favorite"><img src="img/icons/fav_gray.png" class="like" data-favorite="like" data-purchaseurl="' + product.fields.purchase_url + '" id="' + product.fields.id + 'like"></p>'
@@ -1034,15 +1035,15 @@
 	    console.log(uniqueId)
 	    var modalHtml = '<div class="modal" id="myModal' + uniqueId + '" tabindex="-1" role="dialog">'; // Modal start
 	    modalHtml += '<div class="modal-dialog modal-sm">'; // Modal inner div start
-	    modalHtml += '<img src="img/pop-up-close.png" class="pop-up-close-icon " id="' + uniqueId + '"  onclick=" clearData(this) ;$(\'#myModal' + uniqueId + '\').modal(\'hide\')">'; // close button
+	    modalHtml += '<img src="img/back.png" class="pop-up-close-icon " id="' + uniqueId + '"  onclick=" clearData(this) ;$(\'#myModal' + uniqueId + '\').modal(\'hide\')">'; // close button
 	    modalHtml += '<div class="modal-content">'; // Modal content start
 	    modalHtml += '<div class="modal-content-inner modal-body">'; // Modal content inner start
 	    modalHtml += '<div id="myCarousel' + uniqueId + '" class="carousel slide" data-ride="carousel" data-pause="true" data-interval="false">'; // carousel start
 	    modalHtml += '<div class="carousel-inner" role="listbox">'; // Carousel inner start
-	    modalHtml += '<div class="item active"> <img id="img1myModal' + uniqueId + '" src=""  class="slider-img carimage"> </div>'; // Carousel image1
-	    modalHtml += '<div class="item"> <img id="img2myModal' + uniqueId + '" src="" class="slider-img carimage"> </div>'; // Carousel image 2
-	    modalHtml += '<div class="item"> <img id="img3myModal' + uniqueId + '" src="" class="slider-img carimage"> </div>'; // Carousel image 3
-	    modalHtml += '<div class="item"> <img id="img4myModal' + uniqueId + '" src="" class="slider-img carimage"> </div>'; // Carousel image 4
+	    modalHtml += '<div class="item active"> <img id="img1myModal' + uniqueId + '" src=""  class="slider-img carimage cover"> </div>'; // Carousel image1
+	    modalHtml += '<div class="item"> <img id="img2myModal' + uniqueId + '" src="" class="slider-img carimage cover"> </div>'; // Carousel image 2
+	    modalHtml += '<div class="item"> <img id="img3myModal' + uniqueId + '" src="" class="slider-img carimage cover"> </div>'; // Carousel image 3
+	    modalHtml += '<div class="item"> <img id="img4myModal' + uniqueId + '" src="" class="slider-img carimage cover"> </div>'; // Carousel image 4
 	    modalHtml += '<ol class="carousel-indicators">'; // carousel indicator start
 	    modalHtml += '<li data-target="#myCarousel' + uniqueId + '" data-slide-to="0" class="active"></li>';
 	    modalHtml += '<li data-target="#myCarousel' + uniqueId + '" data-slide-to="1"></li>';
@@ -1194,11 +1195,11 @@
 	$(document).on('show.bs.modal', function(e) {
 	    //$(e.target).find("img.pop-up-close-icon").hide();
 	    var modalContent = $(e.target).find(".modal-content");
-	    modalContent.css({
+	 /*   modalContent.css({
 	        "left": function() {
 	            return $(e.target).parent().hasClass('left-padding') ? "-15%" : "15%";
 	        }
-	    });
+	    });*/
 	    //var blue = document.getElementById("blue");
 
 
@@ -1206,23 +1207,31 @@
 	});
 	/*To disable scroll when color picker is shown*/
 	$('#colorDropDown,#favoritedropdown,#filterDropdown').on('hidden.bs.dropdown', function() {
-	    scrollPos = 0;
+	  /*  scrollPos = 0;
 	    $('body').css({
 	        overflow: '',
 	        position: '',
 	        top: ''
-	    }).scrollTop(scrollPos);
+	    }).scrollTop(scrollPos);*/
+			
+      $('#wrapper').off('touchmove');	
+     
 	});
 	/*To enable scroll when color picker is hided*/
 	$('#colorDropDown,#favoritedropdown,#filterDropdown').on('shown.bs.dropdown', function() {
-	    // var scrollPos = 0;
-	    scrollPos = $('body').scrollTop();
+	      $('#wrapper').on('touchmove', false);
+	     // $('#favoritedropdown').off('touchmove');	
+	     // $('#filterDropdown').off('touchmove');	
+	     	
+	     
+		// var scrollPos = 0;
+	  /*  scrollPos = $('body').scrollTop();
 	    $('body').css({
-	        /*
+	        
 	        						overflow: 'hidden',
 	        						position: 'fixed',
-	        						top: -scrollPos*/
-	    });
+	        						top: -scrollPos
+	    });*/
 	});
 	//show x after modal is shown and then reposition it
 	//hack because bootstrap and variable device size
@@ -1269,6 +1278,13 @@
 	        }
 	    });*/
 
+		 modalContent.css({
+			 
+			 "height":$( window ).height()*0.846,
+			 "overflow-y": 'auto',
+			 "width" :$( window ).width()*.90
+			 
+		 });
 	    imagex.fadeIn("fast");
 	    console.log(index);
 
@@ -1362,7 +1378,8 @@
 	            console.log('calling load 537 windows ');
 
 	            loadprof("false");
-	            fetchFavorites(); //Load the favorites
+	            //commenting fav
+			//	fetchFavorites(); //Load the favorites
 	            var parsedata = JSON.parse(localStorage.getItem('itemdata'));
 	            console.log(JSON.stringify(parsedata[0].paginator))
 	            if (parsedata[0].paginator.has_next)
@@ -1452,7 +1469,8 @@
 	            console.log('calling load prof from windows ');
 	            //loadprofcolr();
 	            loadprof("true");
-	            fetchFavorites(); //Load the favorites
+				//commenting fav
+	            //fetchFavorites(); //Load the favorites
 	            if (parsedata[0].paginator.has_next)
 	                hasnext = true;
 	        },
@@ -1505,7 +1523,8 @@
 
 
 	                loadprof("false");
-	                fetchFavorites(); //Load the favorites
+					//commenting fav
+	               // fetchFavorites(); //Load the favorites
 	            }
 	            console.log(JSON.stringify(parsedata[0].paginator))
 	            if (parsedata[0].paginator.has_next)

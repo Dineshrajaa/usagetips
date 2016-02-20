@@ -17,7 +17,20 @@
     font-family: 'Avenir Next Medium';
     src: url('AvenirNextCondensed-Medium.ttf') format('truetype');
 }
-
+/*issue 2*/
+.slider-img  {
+	  width: 100% !important;
+	  height: 250px !important;
+	  object-fit: cover;
+	  
+	}
+	
+.feedpic{
+    height: 168px !important;
+	  width: 168px !important;
+	  object-fit: cover;
+	  
+}	
 html, body { height: 100%; }
 #wrapper { min-height: 100%; height: auto; margin:0 auto; padding: 47px 0 40px; }
 .hightlight-body { overflow: hidden; }
@@ -26,8 +39,8 @@ html, body { height: 100%; }
 #pageheader { background:#000; height:auto; text-align:center; padding:10px 0; position: fixed; top: 0; left: 0; width: 100%; z-index: 999; }
 
 #pagecontent .product-list { margin-bottom:20px; }
-#pagecontent .product-list .product-title { position:relative; padding:13px 10px 13px 30px; border:2px solid #ccc;}
-#pagecontent .product-list .product-title .favorite { position:absolute; left:10px; top:10px; }
+/*#pagecontent .product-list .product-title { position:relative; padding:13px 10px 13px 30px; border:2px solid #ccc;}
+#pagecontent .product-list .product-title .favorite { position:absolute; left:10px; top:10px; }*/
 #pagecontent .product-list .product-title h5 { text-align:right; margin:0; color:#656565; font-size:19px; font-family: 'Futura Medium';}
 
 #pagefooter { height: 40px; background-color: #ffff; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999; }
@@ -61,17 +74,25 @@ html, body { height: 100%; }
 
 /* new css */
 
-#pagecontent .top-margin  {
+/*#pagecontent .top-margin  {
  margin-top:15px;
+}*/
+#pagecontent .top-margin  {
+ margin-top:8px;
 }
-
+#pagecontent .product-right-padding {
+ padding-right:4px;
+ padding-left:8px;
+}
+/*
 #pagecontent .product-right-padding {
  padding-right:8px;
-}
+}*/
 /*.modal { background: url(../img/icons/close.png) no-repeat 96% 80px; } */
 .modal-backdrop.in { filter: alpha(opacity=80); opacity: .8;
 }
-.modal-content { padding: 20px; border-radius: 0; width:100%; }
+/*.modal-content { padding: 20px; border-radius: 0; width:100%; }*/
+.modal-content { padding: 7px 11px 6px; border-radius: 0; width:400px; border:1px solid #adadad;}
 .modal-dialog { width:90%; margin:0;  bottom: 40px; margin: auto; left: 50px; position: absolute; height: inherit; }
 .modal-content-inner {  }
 .carousel-indicators { position:static; width:100%; left:0; margin-left:0; margin:10px 0; }
@@ -156,7 +177,7 @@ html, body { height: 100%; }
 	  font-family: 'Avenir Next Bold';
 	  font-weight:bold;
 	  color:#000;
-	 /* display: inline;
+	  /*display: inline;
 	  position: fixed;*/
 	}
 	
@@ -167,7 +188,7 @@ html, body { height: 100%; }
 	}
 
 	.saved-amount-in-popup  {
-	  font-size:14px; margin-top:-11px; text-align:right; margin-left:-7px;
+	  font-size:14px; margin-top:-11px; text-align:right; margin-left:8px;
 	  font-family: 'Avenir Next Medium';
 	}
 	
@@ -198,12 +219,32 @@ html, body { height: 100%; }
 	}
 	
 	.pop-up-close-icon  {
-	  float:right; margin-right:-42px; margin-top:37px;
+	  position: fixed;
+    bottom: -31px;
+    left: -10px;
 	 }
-
+	 #filterDropdown{
+		 
+		z-index:9999; 
+	 }
+     #favoritedropdown{
+		 
+		z-index:9999; 
+	 }
+/*
 #pagecontent .product-left-padding {
  padding-left:8px;
 }
+*/
+
+#pagecontent .product-left-padding {
+ padding-left:4px;
+ padding-right:8px;
+}
+
+#pagecontent .product-list .product-title { position:relative; padding:8px 10px 6px 30px; border:2px solid #ccc;}
+
+#pagecontent .product-list .product-title .favorite { position:absolute; left:10px; top:5px; }
 
 @media only screen and (max-height: 480px) {
 	#pagefooter .drop-up.product-filter, #pagefooter .drop-up.favorite-filter, #pagefooter .drop-up.color-filter { height:310px; }
@@ -228,4 +269,37 @@ html, body { height: 100%; }
 @media only screen and (min-height: 701px) and (max-height: 800px) {
 	#pagefooter .drop-up.product-filter, #pagefooter .drop-up.favorite-filter, #pagefooter .drop-up.color-filter { height:490px; }
 	#flat-slider-vertical-1.ui-widget-content { height: 430px; }
+}
+
+@media only screen and (max-height: 800px) {
+	.modal-content {
+    width: 96%;
+    height: 648px;
+    margin-left: -3px;
+}
+}
+
+@media only screen and (max-height: 700px) {
+	.modal-content {
+    width: 96%;
+    height: 540px;
+    margin-left: -3px;
+}		
+}
+
+@media only screen and (max-height: 600px) {
+	.modal-content {
+    width: 97%;
+   margin-top: 50px !important;
+    margin-left: -5px;
+    height: 481px;
+}		
+}
+
+@media only screen and (max-height: 480px) {
+	.modal-content {
+    width: 86%;
+    margin: 50px 0 0 11px !important;
+    height: 392px;
+}
 }
