@@ -20,20 +20,39 @@
 	        }
 	    });
 
-	    $('#userDropDown').click(function() {
+	    $("#userDropDown").on("show.bs.dropdown", function(event) {
+	        /*if ($("#userTypeList").is(':visible')){
+	            $("body").removeClass("hightlight-body");
+	            $('.user-filter').hide();
+	        }
+	        else{*/
+	            $("body").addClass("hightlight-body");
+	            $('.user-filter').show();
+	        // }
+	        
+	        if (localStorage.choosedGender == null || localStorage.choosedGender == undefined)
+	            localStorage.choosedGender = localStorage.type;
+	        manageGender();
+	    });
+	     $("#userDropDown").on("hide.bs.dropdown", function(event) {
+	     	$("body").removeClass("hightlight-body");
+	     });
+	    /*$('#userDropDown').click(function() {
             $("body").toggleClass("hightlight-body");
             $('.user-filter').toggle();
             if (localStorage.choosedGender == null || localStorage.choosedGender == undefined)
 	            localStorage.choosedGender = localStorage.type;
 	        manageGender();
-        });
-		
-		
-		$('#wrapper').click(function(e) {
-            $('#userTypeList').hide();
-			$('body').removeClass('hightlight-body');
-			
-        });
+        });*/
+
+		$("#profileBtn").click(function(){
+			$('.user-filter').toggle();
+		});
+	    $('#wrapper').click(function(e) {
+	        //$('#userTypeList').hide();
+	        $('body').removeClass('hightlight-body');
+
+	    });
 
 	    function manageCategories() {
 	        // Method to show or hide Male and Female categories based on the prefered gender
@@ -56,18 +75,57 @@
 	        /*if (localStorage.choosedGender == null || localStorage.choosedGender == undefined)
 	            localStorage.choosedGender = localStorage.type;
 	        else {*/
-	            if (localStorage.choosedGender == "male") {
-	            	$("#maleSwitch").prop("checked","true");
-	            	$("#femaleSwitch").prop("checked","false");
-	            }else if (localStorage.choosedGender == "female") {
-	            	$("#femaleSwitch").prop("checked","true");
-	            	$("#maleSwitch").prop("checked","false");
-	            }
-	            else if(localStorage.choosedGender=="both"){
-	            	$("#maleSwitch,#femaleSwitch").prop("checked","true");
-	            }
+	        console.log("manageGender called");
+	        if (localStorage.choosedGender == "male") {
+	            console.log("Male");
+	            $("#maleSwitch").prop("checked", "true");
+	            $("#femaleSwitch").removeAttr("checked");
+	            // $("#femaleSwitch").prop("checked","false");
+	        } else if (localStorage.choosedGender == "female") {
+	            console.log("Female");
+	            $("#femaleSwitch").prop("checked", "true");
+	            $("#maleSwitch").removeAttr("checked");
+	        } else if (localStorage.choosedGender == "both") {
+	            console.log("Both");
+	            $("#maleSwitch,#femaleSwitch").prop("checked", "true");
+	        }
 	        // }
 	    }
+
+	    $("#maleSwitch").on("change", function() {
+
+	        var maleChecked = $(this).prop("checked");
+	        var femaleToo = $("#femaleSwitch").prop("checked");
+	        if (!maleChecked && localStorage.type == "male") {
+	            $("#femaleSwitch").prop("checked", "true");
+	            localStorage.choosedGender = "female";
+	        } else if (maleChecked && femaleToo)
+	            localStorage.choosedGender = "both";
+	        else {
+	            $("#femaleSwitch").prop("checked", "true");
+	            localStorage.choosedGender = "female";
+	        }
+	        if (maleChecked && localStorage.type == "female" && femaleToo)
+	            localStorage.choosedGender = "both";
+
+
+	    });
+	    $("#femaleSwitch").on("change", function() {
+	        var femaleChecked = $(this).prop("checked");
+	        var maleToo = $("#maleSwitch").prop("checked");
+	        if (!femaleChecked && localStorage.type == "female") {
+	            $("#maleSwitch").prop("checked", "true");
+	            localStorage.choosedGender = "male";
+	        } else if (femaleChecked && maleToo)
+	            localStorage.choosedGender == "both";
+	        else {
+	            $("#maleSwitch").prop("checked", "true");
+	            localStorage.choosedGender = "male";
+	        }
+	        if (femaleChecked && localStorage.type == "male" && maleToo)
+	            localStorage.choosedGender = "both";
+	    });
+
 	    var scrollPos = 0; // variable for enabling & disabling scroll
 	    console.log('doc ready');
 	    localStorage.setItem('productid', ' ');
@@ -366,6 +424,7 @@
 
 
 	        }
+	        cat=$(this).data("cat");
 	        $.ajax({
 	            type: 'GET',
 	            url: "http://staging12.getpriceapp.com/item/list/",
@@ -384,7 +443,7 @@
 	                "category": cat,
 	                "page": page_no,
 	                "show_by": 10,
-	                'type': type
+	                'type': localStorage.choosedGender || localStorage.type
 
 	            },
 	            success: function(data) {
@@ -610,47 +669,47 @@
 	                    $(".shopname").animateCss("flipOutX");
 	                }, 500);*/
 	    setTimeout(function() {
-	        od.update((realValue - 1));
+	        od.update((realValue - 0.15));
 	        $(".shopname").text("Tradsey.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1100);
 	    setTimeout(function() {
-	        od.update((realValue - 2));
+	        od.update((realValue - 0.25));
 	        $(".shopname").text("Oodle.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1400);
 	    setTimeout(function() {
-	        od.update((realValue - 3));
+	        od.update((realValue - 0.35));
 	        $(".shopname").text("Nordtroms.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1600);
 	    setTimeout(function() {
-	        od.update((realValue - 4));
+	        od.update((realValue - 0.45));
 	        $(".shopname").text("Cabelas.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1800);
 	    setTimeout(function() {
-	        od.update((realValue - 5));
+	        od.update((realValue - 0.55));
 	        $(".shopname").text("Sportsauthority.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2000);
 	    setTimeout(function() {
-	        od.update((realValue - 6));
+	        od.update((realValue - 0.65));
 	        $(".shopname").text("Ebay.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2300);
 	    setTimeout(function() {
-	        od.update((realValue - 7));
+	        od.update((realValue - 0.75));
 	        $(".shopname").text("TheRealReal.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2600);
 	    setTimeout(function() {
-	        od.update((realValue - 8));
+	        od.update((realValue - 0.85));
 	        $(".shopname").text("Etsy.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2900);
 	    setTimeout(function() {
-	        od.update((realValue - 9));
+	        od.update((realValue - 1));
 	        $(".shopname").text("Overstock.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 3200);
@@ -1212,6 +1271,7 @@
 	/*To enable scroll when color picker is hided*/
 	$('#colorDropDown,#favoritedropdown,#filterDropdown').on('shown.bs.dropdown', function() {
 	    $('#wrapper').on('touchmove', false);
+	    $(".user-filter").hide();
 	    // $('#favoritedropdown').off('touchmove');	
 	    // $('#filterDropdown').off('touchmove');	
 
@@ -1355,7 +1415,7 @@
 	            "category": cat,
 	            page: page_no,
 	            "show_by": "10",
-	            'type': type
+	            'type': localStorage.choosedGender || localStorage.type
 	                //color : color
 
 	        },
@@ -1446,7 +1506,7 @@
 	            "category": cat,
 	            page: page_no,
 	            "show_by": "10",
-	            'type': type,
+	            'type': localStorage.choosedGender || localStorage.type,
 	            "color": color
 
 	        },
@@ -1495,7 +1555,7 @@
 	            "category": cat,
 	            "page": page_no,
 	            "show_by": 10,
-	            type: type
+	            type: localStorage.choosedGender || localStorage.type
 	                //"color" : color
 	        },
 	        success: function(data) {
@@ -1623,7 +1683,7 @@
 
 	function getFavoritesHTML(favObj) {
 	    //data-likebtnid="'+favObj.likebtnid+'" 
-	    var favoriteHtml = '<li class="col-md-12 col-sm-12 col-xs-12" id="' + favObj.likebtnid + 'div" data-likebtnid="' + favObj.likebtnid + '" data-prodid="' + favObj.pk + '">';
+	    var favoriteHtml = '<li onclick="showPurchasePage(this)" data-purchaseurl="' + favObj.itemStoreLink + '" data-class="col-md-12 col-sm-12 col-xs-12" id="' + favObj.likebtnid + 'div" data-likebtnid="' + favObj.likebtnid + '" data-prodid="' + favObj.pk + '">';
 	    favoriteHtml += '<a href="#"><img src="' + favObj.itemThumbURL + '"></a>';
 	    favoriteHtml += '</li>';
 	    return favoriteHtml;

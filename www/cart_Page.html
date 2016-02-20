@@ -99,43 +99,43 @@
                             <div class="btn-group dropdisable" id="filterDropdown">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><img src="img/icons/filter_white.png"></button>
                                 <ul class="dropdown-menu drop-up product-filter needsclick scrollable-menu-filter" role="menu">
-                                    <li id="googles" class="femalecats">
+                                    <li id="googles" class="femalecats" data-cat="sunglasses">
                                         <a href="#"><img src="img/icons/goggles.png"></a>
                                     </li>
-                                    <li id="wwatchimg" class="femalecats">
+                                    <li id="wwatchimg" class="femalecats" data-cat="watches">
                                         <a href="#"><img src="img/icons/watch.png"></a>
                                     </li>
-                                    <li id="wdressimg" class="femalecats">
+                                    <li id="wdressimg" class="femalecats" data-cat="clothing">
                                         <a href="#"><img src="img/icons/dress.png"></a>
                                     </li>
-                                    <li id="wring" class="femalecats">
+                                    <li id="wring" class="femalecats" data-cat="jewelry">
                                         <a href="#"><img src="img/icons/ring.png"></a>
                                     </li>
-                                    <li id="wbag" class="femalecats">
+                                    <li id="wbag" class="femalecats" data-cat="bags">
                                         <a href="#"><img src="img/icons/bag.png"></a>
                                     </li>
-                                    <li id="wsandal" class="femalecats">
+                                    <li id="wsandal" class="femalecats" data-cat="shoes">
                                         <a href="#"><img src="img/icons/sandal.png"></a>
                                     </li>
-                                    <li id="shirtimg" class="malecats">
+                                    <li id="shirtimg" class="malecats" data-cat="clothing">
                                         <a href="#"><img src="img/icons/t-shart.png"></a>
                                     </li>
-                                    <li id="gadgetimg" class="malecats">
+                                    <li id="gadgetimg" class="malecats" data-cat="gadgets">
                                         <a href="#"><img src="img/icons/headphone.png"></a>
                                     </li>
-                                    <li id="cycleimg" class="malecats">
+                                    <li id="cycleimg" class="malecats" data-cat="outdoor">
                                         <a href="#"><img src="img/icons/tent.png"></a>
                                     </li>
-                                    <li id="watchimg" class="malecats">
+                                    <li id="watchimg" class="malecats" data-cat="watches">
                                         <a href="#"><img src="img/icons/watch.png"></a>
                                     </li>
-                                    <li id="shoeimg" class="malecats">
+                                    <li id="shoeimg" class="malecats" data-cat="shoes">
                                         <a href="#"><img src="img/icons/shoes.png"></a>
                                     </li>
-                                    <li id="mensgoogles" class="malecats">
+                                    <li id="mensgoogles" class="malecats" data-cat="sunglasses">
                                         <a href="#"><img src="img/icons/Men_goggles.png"></a>
                                     </li>
-                                    <li id="maleall">
+                                    <li id="maleall" data-cat="all">
                                         <a href="#"><img src="img/icons/all.png"></a>
                                     </li>
                                 </ul>
@@ -165,16 +165,16 @@
                 <div class="col-md-4 col-sm-4 col-xs-4">
                     <div class="row">
                         <div class="btn-group dropdisable" id="userDropDown">
-                            <button type="button" class="btn btn-default dropdown-toggle abutton" data-toggle="dropdown"><img src="img/icons/profile_white.png"></button>
+                            <button type="button" id="profileBtn" class="btn btn-default dropdown-toggle abutton" data-toggle="dropdown"><img src="img/icons/profile_white.png"></button>
                             <ul id="userTypeList" class="user-filter" style="display:none;">
                                 Female
                                 <div class="onoffswitch">
-                                    <input type="checkbox" class="onoffswitch-checkbox" id="femaleSwitch" >
+                                    <input type="checkbox" class="onoffswitch-checkbox" id="femaleSwitch">
                                     <label class="onoffswitch-label" for="femaleSwitch"></label>
                                 </div>
                                 Male
                                 <div class="onoffswitch">
-                                    <input type="checkbox" class="onoffswitch-checkbox" id="maleSwitch" >
+                                    <input type="checkbox" class="onoffswitch-checkbox" id="maleSwitch">
                                     <label class="onoffswitch-label" for="maleSwitch"></label>
                                 </div>
                             </ul>
@@ -197,13 +197,13 @@
     <script src="js/cart_Page.js"></script>
     <script>
     /*$("#flat-slider-vertical-1")
-                    .slider({
-                        max: 25,
-                        min: 0,
-                        range: "min",
-                        value: 0,
-                        orientation: "vertical"
-                    });*/
+                        .slider({
+                            max: 25,
+                            min: 0,
+                            range: "min",
+                            value: 0,
+                            orientation: "vertical"
+                        });*/
     </script>
     <script>
     $(document).ready(function() {
