@@ -875,7 +875,7 @@
 	        return "";
 	    } else {
 	        var productHtml = '<div class="product-list">'; // productlist start
-	        productHtml += '<img src="' + imgUrl + '" class="img-responsive items" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">'; // Product image
+	        productHtml += '<img style="height:169px" src="' + imgUrl + '" class="img-responsive items" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">'; // Product image
 	        productHtml += getModalHTML(uniqueId, product, imgUrl); // Modal html maker call
 	        productHtml += '<div class="product-title">'; // product title start
 	        productHtml += '<p class="favorite"><img src="img/icons/fav_gray.png" class="like" data-favorite="like" data-purchaseurl="' + product.fields.purchase_url + '" id="' + product.fields.id + 'like"></p>'
