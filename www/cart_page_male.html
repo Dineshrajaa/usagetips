@@ -16,13 +16,13 @@
 
 <body>
     <header id="pageheader">
-        <a href="#"><img src="img/logo.png" class="app-logo-in-popup" ></a>
+        <a href="#"><img src="img/logo.png" class="app-logo-in-popup"></a>
     </header>
     <div id="wrapper">
         <main id="pagecontent">
             <!-- <div class="container-fluid"> -->
-                <div class="top-margin add-items">
-                    <!--         <div class="add-items">            <div class="col-md-3 col-sm-6 col-xs-6">
+            <div class="top-margin add-items">
+                <!--         <div class="add-items">            <div class="col-md-3 col-sm-6 col-xs-6">
                         <div class="product-list">
                             <img src="img/bag.jpg" class="img-responsive">
                             <div class="product-title">
@@ -85,7 +85,7 @@
                             </div>
                         </div>
                     </div> </div>-->
-                </div>
+            </div>
             <!-- </div> -->
         </main>
     </div>
@@ -98,23 +98,41 @@
                             <div class="btn-group dropdisable" id="filterDropdown">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><img src="img/icons/filter_white.png"></button>
                                 <ul class="dropdown-menu drop-up product-filter needsclick scrollable-menu-filter" role="menu">
-                                    <li id="shirtimg">
+                                    <li id="shirtimg" class="malecats">
                                         <a href="#"><img src="img/icons/t-shart.png"></a>
                                     </li>
-                                    <li id="gadgetimg">
+                                    <li id="gadgetimg" class="malecats">
                                         <a href="#"><img src="img/icons/headphone.png"></a>
                                     </li>
-                                    <li id="cycleimg">
+                                    <li id="cycleimg" class="malecats">
                                         <a href="#"><img src="img/icons/tent.png"></a>
                                     </li>
-                                    <li id="watchimg">
+                                    <li id="watchimg" class="malecats">
                                         <a href="#"><img src="img/icons/watch.png"></a>
                                     </li>
-                                    <li id="shoeimg">
+                                    <li id="shoeimg" class="malecats">
                                         <a href="#"><img src="img/icons/shoes.png"></a>
                                     </li>
-                                    <li id="mensgoogles">
+                                    <li id="mensgoogles" class="malecats">
                                         <a href="#"><img src="img/icons/Men_goggles.png"></a>
+                                    </li>
+                                    <li id="googles" class="femalecats">
+                                        <a href="#"><img src="img/icons/goggles.png"></a>
+                                    </li>
+                                    <li id="wwatchimg" class="femalecats">
+                                        <a href="#"><img src="img/icons/watch.png"></a>
+                                    </li>
+                                    <li id="wdressimg" class="femalecats">
+                                        <a href="#"><img src="img/icons/dress.png"></a>
+                                    </li>
+                                    <li id="wring" class="femalecats">
+                                        <a href="#"><img src="img/icons/ring.png"></a>
+                                    </li>
+                                    <li id="wbag" class="femalecats">
+                                        <a href="#"><img src="img/icons/bag.png"></a>
+                                    </li>
+                                    <li id="wsandal" class="femalecats">
+                                        <a href="#"><img src="img/icons/sandal.png"></a>
                                     </li>
                                     <li id="maleall">
                                         <a href="#"><img src="img/icons/all.png"></a>
@@ -127,7 +145,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-4">
                     <div class="row">
                         <div class="btn-group dropdisable" id="favoritedropdown">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="colord"><img src="img/icons/fav_white.png" ></button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="colord"><img src="img/icons/fav_white.png"></button>
                             <ul class="row dropdown-menu drop-up favorite-filter scrollable-menu-favourite" role="menu" id="mylist">
                                 <!-- <li class="col-md-12 col-sm-12 col-xs-12">
                                     <a href="#"><img src="img/bag.jpg"></a>
@@ -169,15 +187,21 @@
                 </div> -->
                 <div class="col-md-4 col-sm-4 col-xs-4">
                     <div class="row">
-                        <div class="btn-group dropdisable">
-                            <button type="button" class="btn btn-default dropdown-toggle disabled" data-toggle="dropdown"><img src="img/icons/profile_white.png"></button>
-                            <!-- <ul class="dropdown-menu drop-up" role="menu">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul> -->
+                        <div class="btn-group dropdisable" id="userDropDown">
+                            <button type="button" class="btn btn-default dropdown-toggle abutton" data-toggle="dropdown"><img src="img/icons/profile_white.png"></button>
+                            <ul id="userTypeList" class="user-filter" style="display:none;">
+                               
+                                Male
+                                <div class="onoffswitch">
+                                    <input type="checkbox" class="onoffswitch-checkbox" id="maleSwitch">
+                                    <label class="onoffswitch-label" for="maleSwitch"></label>
+                                </div>
+                                 Female
+                                <div class="onoffswitch">
+                                    <input type="checkbox" class="onoffswitch-checkbox" id="femaleSwitch">
+                                    <label class="onoffswitch-label" for="femaleSwitch"></label>
+                                </div>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -196,14 +220,14 @@
     <script src="js/index.js"></script>
     <script src="js/cart_Page.js"></script>
     <script>
-    $("#flat-slider-vertical-1")
-        .slider({
-            max: 25,
-            min: 0,
-            range: "min",
-            value: 0,
-            orientation: "vertical"
-        });
+    /*$("#flat-slider-vertical-1")
+                .slider({
+                    max: 25,
+                    min: 0,
+                    range: "min",
+                    value: 0,
+                    orientation: "vertical"
+                });*/
     </script>
     <script>
     $(document).ready(function() {

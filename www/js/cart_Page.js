@@ -11,70 +11,62 @@
 
 	        }
 	    });
+	    $("#filterDropdown").on("show.bs.dropdown", function(event) {
+	        if (localStorage.choosedGender != null || localStorage.choosedGender != undefined) {
+	            manageCategories();
+	        } else {
+	            localStorage.choosedGender = localStorage.type;
+	            manageCategories();
+	        }
+	    });
 
-	    function filterBasedOnCategory(cat) {
-	        $.ajax({
-	            type: 'GET',
-	            url: "http://staging12.getpriceapp.com/item/list/",
-	            beforeSend: function() {
-	                console.log('ajaxstart');
-	                $body.addClass("loading");
-	            },
-	            complete: function() {
-	                //alert('ajaxstopp')
-	                $body.removeClass("loading");
+	    $('#userDropDown').click(function() {
+            $("body").toggleClass("hightlight-body");
+            $('.user-filter').toggle();
+            if (localStorage.choosedGender == null || localStorage.choosedGender == undefined)
+	            localStorage.choosedGender = localStorage.type;
+	        manageGender();
+        });
+		
+		
+		$('#wrapper').click(function(e) {
+            $('#userTypeList').hide();
+			$('body').removeClass('hightlight-body');
+			
+        });
 
-	            },
-	            contentType: "application/json",
-	            dataType: "json",
-	            data: {
-	                "category": cat,
-	                "page": page_no,
-	                "show_by": 10,
-	                'type': type
+	    function manageCategories() {
+	        // Method to show or hide Male and Female categories based on the prefered gender
+	        if (localStorage.choosedGender == "male") {
+	            // If choosen gender is male show male categories and hide female categories
+	            $(".malecats").show();
+	            $(".femalecats").hide();
+	        } else if (localStorage.choosedGender == "female") {
+	            // If choosen gender is female show male categories and hide female categories
+	            $(".malecats").hide();
+	            $(".femalecats").show();
+	        } else if (localStorage.choosedGender == "both") {
+	            // If choosen gender is both show both the categories 
+	            $(".malecats,.femalecats").show();
+	        }
+	    }
 
-	            },
-	            success: function(data) {
-	                //alert(JSON.stringify(data));
-
-	                console.log('insidesucees');
-	                var getitemdata = JSON.stringify(data);
-	                console.log(JSON.stringify(data));
-	                localStorage.setItem('itemdata', '');
-	                localStorage.setItem('itemdata', getitemdata);
-	                var parsedata = JSON.parse(localStorage.getItem('itemdata'));
-	                console.log(JSON.stringify(parsedata[0].paginator))
-	                console.log('329')
-	                if (parsedata[0].paginator.has_next)
-	                    hasnext = true;
-
-	                if (parsedata[0].products.length) {
-	                    console.log('calling load prof from windows ');
-	                    loadprof("false");
-						//commenting fav
-	                   // fetchFavorites(); //Load the favorites
-	                } else {
-	                    $('.add-items').html('');
-	                    mwidth = $(window).width();
-	                    mheight = $('body').height()
-
-	                    //$('.add-items').css({"height":mheight });
-	                    //$('.add-items').css({"width":mwidth });
-	                    $('.add-items').append('<div class="jumbotron">\
-			<h1>No Data Available</h1> </div>')
-
-
-	                }
-
-	            },
-
-	            error: function(xhr, status, error) {
-	                console.log(xhr);
+	    function manageGender() {
+	        // Method to enable or disable gender based on the choosen options
+	        /*if (localStorage.choosedGender == null || localStorage.choosedGender == undefined)
+	            localStorage.choosedGender = localStorage.type;
+	        else {*/
+	            if (localStorage.choosedGender == "male") {
+	            	$("#maleSwitch").prop("checked","true");
+	            	$("#femaleSwitch").prop("checked","false");
+	            }else if (localStorage.choosedGender == "female") {
+	            	$("#femaleSwitch").prop("checked","true");
+	            	$("#maleSwitch").prop("checked","false");
 	            }
-
-
-	        }); //end of ajax call 
-
+	            else if(localStorage.choosedGender=="both"){
+	            	$("#maleSwitch,#femaleSwitch").prop("checked","true");
+	            }
+	        // }
 	    }
 	    var scrollPos = 0; // variable for enabling & disabling scroll
 	    console.log('doc ready');
@@ -555,7 +547,7 @@
 	                }
 	            });
 	        } else {
-	            
+
 	            $(this).attr("src", "img/like.png");
 	            $(this).data("favorite", "like");
 	            $.ajax({
@@ -1195,11 +1187,11 @@
 	$(document).on('show.bs.modal', function(e) {
 	    //$(e.target).find("img.pop-up-close-icon").hide();
 	    var modalContent = $(e.target).find(".modal-content");
-	 /*   modalContent.css({
-	        "left": function() {
-	            return $(e.target).parent().hasClass('left-padding') ? "-15%" : "15%";
-	        }
-	    });*/
+	    /*   modalContent.css({
+	           "left": function() {
+	               return $(e.target).parent().hasClass('left-padding') ? "-15%" : "15%";
+	           }
+	       });*/
 	    //var blue = document.getElementById("blue");
 
 
@@ -1207,31 +1199,31 @@
 	});
 	/*To disable scroll when color picker is shown*/
 	$('#colorDropDown,#favoritedropdown,#filterDropdown').on('hidden.bs.dropdown', function() {
-	  /*  scrollPos = 0;
-	    $('body').css({
-	        overflow: '',
-	        position: '',
-	        top: ''
-	    }).scrollTop(scrollPos);*/
-			
-      $('#wrapper').off('touchmove');	
-     
+	    /*  scrollPos = 0;
+	      $('body').css({
+	          overflow: '',
+	          position: '',
+	          top: ''
+	      }).scrollTop(scrollPos);*/
+
+	    $('#wrapper').off('touchmove');
+
 	});
 	/*To enable scroll when color picker is hided*/
 	$('#colorDropDown,#favoritedropdown,#filterDropdown').on('shown.bs.dropdown', function() {
-	      $('#wrapper').on('touchmove', false);
-	     // $('#favoritedropdown').off('touchmove');	
-	     // $('#filterDropdown').off('touchmove');	
-	     	
-	     
-		// var scrollPos = 0;
-	  /*  scrollPos = $('body').scrollTop();
-	    $('body').css({
-	        
-	        						overflow: 'hidden',
-	        						position: 'fixed',
-	        						top: -scrollPos
-	    });*/
+	    $('#wrapper').on('touchmove', false);
+	    // $('#favoritedropdown').off('touchmove');	
+	    // $('#filterDropdown').off('touchmove');	
+
+
+	    // var scrollPos = 0;
+	    /*  scrollPos = $('body').scrollTop();
+	      $('body').css({
+	          
+	          						overflow: 'hidden',
+	          						position: 'fixed',
+	          						top: -scrollPos
+	      });*/
 	});
 	//show x after modal is shown and then reposition it
 	//hack because bootstrap and variable device size
@@ -1278,13 +1270,13 @@
 	        }
 	    });*/
 
-		 modalContent.css({
-			 
-			 "height":$( window ).height()*0.846,
-			 "overflow-y": 'auto',
-			 "width" :$( window ).width()*.90
-			 
-		 });
+	    modalContent.css({
+
+	        "height": $(window).height() * 0.846,
+	        "overflow-y": 'auto',
+	        "width": $(window).width() * .90
+
+	    });
 	    imagex.fadeIn("fast");
 	    console.log(index);
 
@@ -1379,7 +1371,7 @@
 
 	            loadprof("false");
 	            //commenting fav
-			//	fetchFavorites(); //Load the favorites
+	            //	fetchFavorites(); //Load the favorites
 	            var parsedata = JSON.parse(localStorage.getItem('itemdata'));
 	            console.log(JSON.stringify(parsedata[0].paginator))
 	            if (parsedata[0].paginator.has_next)
@@ -1469,7 +1461,7 @@
 	            console.log('calling load prof from windows ');
 	            //loadprofcolr();
 	            loadprof("true");
-				//commenting fav
+	            //commenting fav
 	            //fetchFavorites(); //Load the favorites
 	            if (parsedata[0].paginator.has_next)
 	                hasnext = true;
@@ -1523,8 +1515,8 @@
 
 
 	                loadprof("false");
-					//commenting fav
-	               // fetchFavorites(); //Load the favorites
+	                //commenting fav
+	                // fetchFavorites(); //Load the favorites
 	            }
 	            console.log(JSON.stringify(parsedata[0].paginator))
 	            if (parsedata[0].paginator.has_next)
