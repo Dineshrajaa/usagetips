@@ -26,17 +26,17 @@
 	            $('.user-filter').hide();
 	        }
 	        else{*/
-	            $("body").addClass("hightlight-body");
-	            $('.user-filter').show();
+	        $("body").addClass("hightlight-body");
+	        $('.user-filter').show();
 	        // }
-	        
+
 	        if (localStorage.choosedGender == null || localStorage.choosedGender == undefined)
 	            localStorage.choosedGender = localStorage.type;
 	        manageGender();
 	    });
-	     $("#userDropDown").on("hide.bs.dropdown", function(event) {
-	     	$("body").removeClass("hightlight-body");
-	     });
+	    $("#userDropDown").on("hide.bs.dropdown", function(event) {
+	        $("body").removeClass("hightlight-body");
+	    });
 	    /*$('#userDropDown').click(function() {
             $("body").toggleClass("hightlight-body");
             $('.user-filter').toggle();
@@ -45,10 +45,10 @@
 	        manageGender();
         });*/
 
-		$("#userDropDown").click(function(){
-			$('.user-filter').toggle();
-			
-		});
+	    $("#userDropDown").click(function() {
+	        $('.user-filter').toggle();
+
+	    });
 	    /*$('#wrapper').click(function(e) {
 	        $('#userTypeList').hide();
 	        $('body').removeClass('hightlight-body');
@@ -109,7 +109,7 @@
 	        }
 	        if (maleChecked && localStorage.type == "female" && femaleToo)
 	            localStorage.choosedGender = "both";
-	        cat="all";
+	        cat = "all";
 	        makeAjaxcall();
 	        $("body").toggleClass("hightlight-body");
 	    });
@@ -127,7 +127,7 @@
 	        }
 	        if (femaleChecked && localStorage.type == "male" && maleToo)
 	            localStorage.choosedGender = "both";
-	        cat="all";
+	        cat = "all";
 	        makeAjaxcall();
 	        $("body").toggleClass("hightlight-body");
 	    });
@@ -243,7 +243,7 @@
 	        $("#myModal" + index).find(".product-name-in-popup").text('');
 	        $("#myModal" + index).find(".retail_price_item").text('')
 	        $("#myModal" + index).find(".odometer").text('')
-	        $("#myModal" + index).find(".saved-amount_price_item").text('')
+	            //$("#myModal" + index).find(".saved-amount_price_item").text('')
 	        $("#myModal" + index).find(".buy-button-amazon").attr('data-purchaseurl', '');
 	        jQuery(var1).modal('show');
 
@@ -430,9 +430,9 @@
 
 
 	        }
-	        cat=$(this).data("cat");
-	        	if(cat=="all" && localStorage.choosedGender=="both")
-	        		cat="";
+	        cat = $(this).data("cat");
+	        if (cat == "all" && localStorage.choosedGender == "both")
+	            cat = "";
 	        $.ajax({
 	            type: 'GET',
 	            url: "http://staging12.getpriceapp.com/item/list/",
@@ -725,7 +725,7 @@
 
 	        od.update(realValue);
 	        $(".shopname").text(localStorage.finalStoreName);
-	        
+
 	    }, 3500);
 	    $(".saved-amount_price_item").text(localStorage.savedPrice);
 	    return false;
@@ -853,12 +853,12 @@
 	            $("#" + carId).find(".odometer").text(parseFloat(modalprice_sold).toFixed(2));
 
 	            //$' + parseFloat(product.fields.price - product.fields.price_sold).toFixed(2) + '
-	            if (modalprice_sold < modalprice)
-	            	localStorage.savedPrice=parseFloat(modalprice - modalprice_sold).toFixed(2);
-	                // $("#" + carId).find(".saved-amount_price_item").text(parseFloat(modalprice - modalprice_sold).toFixed(2));
-	            else {
-	            	localStorage.savedPrice=0.00;
-	                // $("#" + carId).find(".saved-amount_price_item").text('0.00');
+	            if (modalprice_sold < modalprice) {
+	                localStorage.savedPrice = parseFloat(modalprice - modalprice_sold).toFixed(2);
+	                $("#" + carId).find(".saved-amount_price_item").text(parseFloat(modalprice - modalprice_sold).toFixed(2));
+	            } else {
+	                localStorage.savedPrice = 0.00;
+	                $("#" + carId).find(".saved-amount_price_item").text('0.00');
 
 	            }
 	            $("#" + carId).find(".buy-button-amazon").attr('data-purchaseurl', moda_purchaseURL);
@@ -1550,8 +1550,8 @@
 	}
 
 	function makeAjaxcall() {
-		if(cat=="all" && localStorage.choosedGender=="both")
-			cat="";
+	    if (cat == "all" && localStorage.choosedGender == "both")
+	        cat = "";
 	    $('.add-items').html('')
 	    $.ajax({
 	        type: 'GET',
@@ -1788,6 +1788,6 @@
 	    $("#myModal" + cleardataId).find(".product-name-in-popup").text('');
 	    $("#myModal" + cleardataId).find(".retail_price_item").text('');
 	    $("#myModal" + cleardataId).find(".odometer").text('');
-	    $("#myModal" + cleardataId).find(".saved-amount_price_item").text('');
+	    //$("#myModal" + cleardataId).find(".saved-amount_price_item").text('');
 	    $("#myModal" + cleardataId).find(".buy-button-amazon").attr('data-purchaseurl', '');
 	}
