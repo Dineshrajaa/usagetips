@@ -109,6 +109,11 @@ html, body { height: 100%; }
 .buy-button-amazon .bright { float:right; }
 .popup-price  { font-size:14px !important; vertical-align:-7px !important;}
 
+#pagecontent .pro-list-container { display: inline-block; width:100%; margin:0 auto; }
+#pagecontent .pro-list-container .pro-list { float:left; width:47%; margin:2% 2% 0% 2%; }
+#pagecontent .pro-list-container .pro-list .product-list { margin-bottom:0; }
+#pagecontent .pro-list-container .pro-list:last-child { margin-right:2%; margin-left:0; }
+
 @media only screen and (max-width: 800px) {
 #pagefooter .drop-up.favorite-filter { width: 280px; margin-left: -50%; }
 .modal-dialog { width: 85%; }

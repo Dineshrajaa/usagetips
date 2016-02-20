@@ -618,47 +618,47 @@
 	                    $(".shopname").animateCss("flipOutX");
 	                }, 500);*/
 	    setTimeout(function() {
-	        od.update(realValue - 1);
+	        od.update((realValue - 1).replace('-',''));
 	        $(".shopname").text("Tradsey.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1100);
 	    setTimeout(function() {
-	        od.update(realValue - 2);
+	        od.update((realValue - 2).replace('-',''));
 	        $(".shopname").text("Oodle.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1400);
 	    setTimeout(function() {
-	        od.update(realValue - 3);
+	        od.update((realValue - 3).replace('-',''));
 	        $(".shopname").text("Nordtroms.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1600);
 	    setTimeout(function() {
-	        od.update(realValue - 4);
+	        od.update((realValue - 4).replace('-',''));
 	        $(".shopname").text("Cabelas.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1800);
 	    setTimeout(function() {
-	        od.update(realValue - 5);
+	        od.update((realValue - 5).replace('-',''));
 	        $(".shopname").text("Sportsauthority.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2000);
 	    setTimeout(function() {
-	        od.update(realValue - 6);
+	        od.update((realValue - 6).replace('-',''));
 	        $(".shopname").text("Ebay.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2300);
 	    setTimeout(function() {
-	        od.update(realValue - 7);
+	        od.update((realValue - 7).replace('-',''));
 	        $(".shopname").text("TheRealReal.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2600);
 	    setTimeout(function() {
-	        od.update(realValue - 8);
+	        od.update((realValue - 8).replace('-',''));
 	        $(".shopname").text("Etsy.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2900);
 	    setTimeout(function() {
-	        od.update(realValue - 9);
+	        od.update((realValue - 9).replace('-',''));
 	        $(".shopname").text("Overstock.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 3200);
@@ -875,7 +875,7 @@
 	        return "";
 	    } else {
 	        var productHtml = '<div class="product-list">'; // productlist start
-	        productHtml += '<img src="' + imgUrl + '" class="img-responsive items feedpic" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">'; // Product image
+	        productHtml += '<img src="' + imgUrl + '" class="img-responsive items" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">'; // Product image
 	        productHtml += getModalHTML(uniqueId, product, imgUrl); // Modal html maker call
 	        productHtml += '<div class="product-title">'; // product title start
 	        productHtml += '<p class="favorite"><img src="img/icons/fav_gray.png" class="like" data-favorite="like" data-purchaseurl="' + product.fields.purchase_url + '" id="' + product.fields.id + 'like"></p>'
@@ -997,10 +997,10 @@
 
 
 	        //modal code for loadpfrof
-	        $('.add-items').append('<div class="col-md-3 col-sm-6 col-xs-6 product-right-padding">' + renderItemNew(i, parsedata[0].products[i], img10) +
+	        $('.add-items').append('<div class="pro-list-container"><div class="pro-list">' + renderItemNew(i, parsedata[0].products[i], img10) +
 	            '</div>\
-								<div class="col-md-3 col-sm-6 col-xs-6 product-left-padding">' + renderItemNew(i + 1, parsedata[0].products[i + 1], img11) +
-	            '</div>');
+								<div class="pro-list">' + renderItemNew(i + 1, parsedata[0].products[i + 1], img11) +
+	            '</div></div>');
 
 
 	    }
