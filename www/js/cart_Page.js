@@ -674,60 +674,96 @@
 	    });*/
 	});
 
-	function changeText(od, realValue) {
+	function changeText(od, realValue,retailVal) {
+		realValue=parseFloat(localStorage.sellingPrice);
+		retailVal=parseFloat(localStorage.retailPrice);
 	    $(".shopname").text("Rei.com");
 	    /*setTimeout(function() {
 	                    $(".shopname").text("Rei.com");
 	                    $(".shopname").animateCss("flipOutX");
 	                }, 500);*/
 	    setTimeout(function() {
-	        od.update((realValue - 0.15));
+	    	var tempPrice=parseFloat((realValue - 0.15)).toFixed(2);
+	    	var tempSaved=(retailVal-tempPrice);
+	        od.update(tempPrice);
+	        $(".saved-amount_price_item").text(tempSaved);
 	        $(".shopname").text("Tradsey.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1100);
 	    setTimeout(function() {
-	        od.update((realValue - 0.25));
+	    	var tempPrice=(realValue - 0.25).toFixed(2);
+	    	var tempSaved=(retailVal-tempPrice);
+	        od.update(tempPrice);
+	        $(".saved-amount_price_item").text(tempSaved);
 	        $(".shopname").text("Oodle.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1400);
 	    setTimeout(function() {
-	        od.update((realValue - 0.35));
+	    	var tempPrice=(realValue - 0.35).toFixed(2);
+	    	var tempSaved=(retailVal-tempPrice);
+	        od.update(tempPrice);
+	        $(".saved-amount_price_item").text(tempSaved);
+	        //od.update((realValue - 0.35));
 	        $(".shopname").text("Nordtroms.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1600);
 	    setTimeout(function() {
-	        od.update((realValue - 0.45));
+	    	var tempPrice=(realValue - 0.45).toFixed(2);
+	    	var tempSaved=(retailVal-tempPrice);
+	        od.update(tempPrice);
+	        $(".saved-amount_price_item").text(tempSaved);
+	        //od.update((realValue - 0.45));
 	        $(".shopname").text("Cabelas.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1800);
 	    setTimeout(function() {
-	        od.update((realValue - 0.55));
+	    	var tempPrice=(realValue - 0.55).toFixed(2);
+	    	var tempSaved=(retailVal-tempPrice);
+	        od.update(tempPrice);
+	        $(".saved-amount_price_item").text(tempSaved);
+	        //od.update((realValue - 0.55));
 	        $(".shopname").text("Sportsauthority.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2000);
 	    setTimeout(function() {
-	        od.update((realValue - 0.65));
+	    	var tempPrice=(realValue - 0.65).toFixed(2);
+	    	var tempSaved=(retailVal-tempPrice);
+	        od.update(tempPrice);
+	        $(".saved-amount_price_item").text(tempSaved);
+	        //od.update((realValue - 0.65));
 	        $(".shopname").text("Ebay.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2300);
 	    setTimeout(function() {
-	        od.update((realValue - 0.75));
+	    	var tempPrice=(realValue - 0.75).toFixed(2);
+	    	var tempSaved=(retailVal-tempPrice);
+	        od.update(tempPrice);
+	        $(".saved-amount_price_item").text(tempSaved);
+	        //od.update((realValue - 0.75));
 	        $(".shopname").text("TheRealReal.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2600);
 	    setTimeout(function() {
-	        od.update((realValue - 0.85));
+	    	var tempPrice=(realValue - 0.85).toFixed(2);
+	    	var tempSaved=(retailVal-tempPrice);
+	        od.update(tempPrice);
+	        $(".saved-amount_price_item").text(tempSaved);
+	        //od.update((realValue - 0.85));
 	        $(".shopname").text("Etsy.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2900);
 	    setTimeout(function() {
-	        od.update((realValue - 1));
+	    	var tempPrice=(realValue - 1).toFixed(2);
+	    	var tempSaved=(retailVal-tempPrice);
+	        od.update(tempPrice);
+	        $(".saved-amount_price_item").text(tempSaved);
+	        //od.update((realValue - 1));
 	        $(".shopname").text("Overstock.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 3200);
 	    setTimeout(function() {
 
-	        od.update(realValue);
+	        od.update(localStorage.sellingPrice);
 
 	        $(".shopname").text(localStorage.finalStoreName);
 	        $(".saved-amount_price_item").text(localStorage.savedPrice);
@@ -780,7 +816,9 @@
 	            console.log(selectedProId);
 	            var modalTitle = data.title;
 	            var modalprice = data.price;
+	            localStorage.retailPrice=modalprice || 0;
 	            var modalprice_sold = data.price_sold;
+	            localStorage.sellingPrice=modalprice_sold || 0;
 	            var modalamount_saved = data.amount_saved;
 	            var plength = data.photo_set.length
 	            var productImages = data.photo_set;
@@ -1403,7 +1441,7 @@
 	    od.value = retailVal;
 
 	    //od.update(realValue);
-	    changeText(od, realValue);
+	    changeText(od, realValue,retailVal);
 
 	});
 
