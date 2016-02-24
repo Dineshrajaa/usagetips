@@ -17,6 +17,13 @@
     font-family: 'Avenir Next Medium';
     src: url('AvenirNextCondensed-Medium.ttf') format('truetype');
 }
+
+/* added 23/2/2106  */
+@font-face {
+    font-family: 'Avenir Next MediumItalic';
+    src: url('AvenirNextCondensed-MediumItalic.ttf') format('truetype');
+} 
+
 /*issue 2*/
 .slider-img  {
 	  width: 100% !important;
@@ -95,9 +102,9 @@ html, body { height: 100%; }
 .modal-content { padding: 7px 11px 6px; border-radius: 0; width:400px; border:1px solid #adadad;}
 .modal-dialog { width:90%; margin:0;  bottom: 40px; margin: auto; left: 50px; position: absolute; height: inherit; }
 .modal-content-inner {  }
-.carousel-indicators { position:static; width:100%; left:0; margin-left:0; margin:10px 0; }
-.carousel-indicators li { background:#CECECE; width:10px; height:10px; border:2px solid #B1B1B1; }
-.carousel-indicators .active { background:#000; width:12px; height:12px; border:2px solid #B1B1B1; }
+.carousel-indicators { position:static; width:100%; left:0; margin-left:0; margin:5px 0;}     /* edited 23/2/2016  */
+.carousel-indicators li { background:#CECECE; width:10px; height:10px; }
+.carousel-indicators .active { background:#000; width:12px; height:12px;  }
 .pro-popup-details { text-align: center; text-transform: uppercase; }
 .pro-popup-details h3 { font-size:30px; margin-bottom:20px; }
 .pro-popup-details p { font-size:20px; }
@@ -203,33 +210,34 @@ html, body { height: 100%; }
 	}
 	
 .retail-text-in-popup  {
-	  font-size:12px; margin-left:5px;
+	  font-size:13px; margin-left:5px;   /* edited 23/2/2016  */
 	  margin-top:-10px;
 	  font-family: 'Avenir Next Medium';
 	 }
 	 
 .retail-price-in-popup   {
-	   font-size:14px; text-decoration:line-through; margin-top:-12px;
+	   font-size:13px; text-decoration:line-through; margin-top:-12px;   /* edited 23/2/2016  */
 	   font-family: 'Avenir Next Medium';
 	}
 	
 .discounted-price-in-pop-up  {
-	  color:#000; text-align:center; margin-top:-14px;
+	  font-size:34px; color:#000; text-align:center; margin-top:-14px;   /* edited 23/2/2016  */
 	  font-family: 'Avenir Next Bold';
 	  font-weight:bold;
 	  color:#000;
 	  /*display: inline;
 	  position: fixed;*/
+	     
 	}
 	
 	.saved-text-in-popup  {
-	font-size:12px; text-align:right;
+	font-size:13px; text-align:right;                                     /* edited 23/2/2016  */
 	margin-top:-12px; margin-left:-6px;
 	font-family: 'Avenir Next Medium';
 	}
 
 	.saved-amount-in-popup  {
-	  font-size:14px; margin-top:-11px; text-align:right; margin-left:8px;
+	  font-size:15px; margin-top:-11px; text-align:right; margin-left:8px;         /* edited 23/2/2016  */
 	  font-family: 'Avenir Next Medium';
 	}
 	
@@ -343,4 +351,23 @@ html, body { height: 100%; }
     margin: 50px 0 0 11px !important;
     height: 392px;
 }
+}
+
+
+
+/* product detail page  */  /* newly added 23/2/2016  */
+
+.product-name  {
+  font-size:17px; font-weight:bold; text-transform: uppercase; 
+  color:#464646; margin-top:4px; 
+  margin-bottom:4px; font-family: 'Avenir Next Demibold';
+ }
+ 
+.zero-side-padding  {
+  padding-right:0px; padding-left:0px;
+}
+
+.searching-best-price-text  {
+ font-size:14px; font-style:italic; margin-top:2px; text-align:center;
+font-family: 'Avenir Next MediumItalic';
 }
