@@ -371,3 +371,9 @@ html, body { height: 100%; }
  font-size:14px; font-style:italic; margin-top:2px; text-align:center;
 font-family: 'Avenir Next MediumItalic';
 }
+
+.shopname {
+    -webkit-animation-duration: 5s;
+    -webkit-animation-delay: 4s;
+    
+}

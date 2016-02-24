@@ -1,4 +1,5 @@
 	$(document).ready(function(e) {
+		
 	    imageArray = new Array(5);
 	    console.log(localStorage.getItem('productClickedId'));
 	    var selectedProId = localStorage.getItem('productClickedId');
@@ -18,7 +19,7 @@
 
 	        }
 	    });
-
+	    $(".searching-best-price-text").animateCss("fadeIn");
 	    var modalc = $(document).find(".carousel");
 	    var hammerobj = new Hammer(modalc[0]);
 	    // modalc.carousel({
@@ -64,20 +65,20 @@
 	            console.log(selectedProId);
 	            var modalTitle = data.title.toUpperCase();
 	            var modalprice = data.price;
-	            localStorage.retailPrice=modalprice || 0;
+	            localStorage.retailPrice = modalprice || 0;
 	            var modalprice_sold = data.price_sold;
-	            localStorage.sellingPrice=modalprice_sold || 0;
+	            localStorage.sellingPrice = modalprice_sold || 0;
 	            var modalamount_saved = data.amount_saved;
 	            var plength = data.photo_set.length
 	            var productImages = data.photo_set;
 	            var moda_purchaseURL = data.purchase_url;
 	            localStorage.finalStoreName = data.store_name || "Amazon";
-	            if (typeof productImages[1]== undefined)
+	            if (typeof productImages[1] == undefined)
 	                productImages[1].url_large == "./assets/img/no_img.png"
 
-	            if (typeof productImages[0]== undefined)
+	            if (typeof productImages[0] == undefined)
 	                productImages[0].url_large == "./assets/img/no_img.png"
-	            if (typeof productImages[2]== undefined)
+	            if (typeof productImages[2] == undefined)
 	                productImages[2].url_large == "./assets/img/no_img.png"
 	            if (plength == 5) {
 	                imageArray[0] = productImages[0].url_large
@@ -129,7 +130,7 @@
 	            //' + parseFloat(modalprice).toFixed(2) + '
 	            $(".retail_price_item").text(parseFloat(modalprice).toFixed(2));
 	            //+ parseFloat(product.fields.price_sold).toFixed(2) + '
-	            $(".odometer").text(parseFloat(modalprice_sold).toFixed(2));
+	            $(".odometer").text(parseFloat(modalprice).toFixed(2));
 
 	            //$' + parseFloat(product.fields.price - product.fields.price_sold).toFixed(2) + '
 	            if (modalprice_sold < modalprice) {
@@ -143,8 +144,8 @@
 	            $(".buy-button-amazon").attr('data-purchaseurl', moda_purchaseURL);
 
 
-	            
-	            
+
+
 	            setProductDetailsPage();
 
 	        },
@@ -166,27 +167,31 @@
 		<div class="item"><img id="img2myModal" src="' + imageArray[1] + '" class="slider-img carimage cover"> </div>\
 	   <div class="item"> <img id="img3myModal" src="' + imageArray[2] + '" class="slider-img carimage cover"> </div>\
 	    <div class="item"> <img id="img4myModal" src="' + imageArray[3] + '" class="slider-img carimage cover"> </div>');
-	    var el=document.querySelector('.odometer');
-	            
+	    var el = document.querySelector('.odometer');
+
 	    var realValue = parseFloat(localStorage.sellingPrice).toFixed(2);
 	    var retailVal = parseFloat(localStorage.retailPrice).toFixed(2);
-	            console.warn(realValue);
-	            console.warn(retailVal);
+	    console.warn(realValue);
+	    console.warn(retailVal);
 
-	            od = new Odometer({
-	                el: el,
-	                value: retailVal,
-	                // Any option (other than auto and selector) can be passed in here
-	                format: '(,ddd).dd',
-	                theme: 'default'
-	            });
+	    od = new Odometer({
+	        el: el,
+	        value: retailVal,
+	        // Any option (other than auto and selector) can be passed in here
+	        format: '(,ddd).dd',
+	        theme: 'default'
+	    });
 
-	            //so it animates everytime
-	            od.value = retailVal;
+	    //so it animates everytime
+	    od.value = retailVal;
 
-	            //od.update(realValue);
-	            changeText(od, realValue, retailVal);
+	    //od.update(realValue);
+	    changeText(od, realValue, retailVal);
 	}
+
+	/*function priceManager(od,realValue,retailVal,retailPrice){
+		localStorage.retailPrice
+	}*/
 
 	function changeText(od, realValue, retailVal) {
 	    realValue = parseFloat(localStorage.sellingPrice).toFixed(2);
@@ -197,7 +202,9 @@
 	                    $(".shopname").animateCss("flipOutX");
 	                }, 500);*/
 	    setTimeout(function() {
-	        var tempPrice = parseFloat((realValue - 0.15)).toFixed(2);
+	        // $(".searching-best-price-text").show();
+
+	        var tempPrice = parseFloat((retailVal - 0.15)).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
@@ -205,7 +212,7 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1100);
 	    setTimeout(function() {
-	        var tempPrice = (realValue - 0.25).toFixed(2);
+	        var tempPrice = (retailVal - 0.25).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
@@ -213,7 +220,7 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1400);
 	    setTimeout(function() {
-	        var tempPrice = (realValue - 0.35).toFixed(2);
+	        var tempPrice = (retailVal - 0.35).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
@@ -222,7 +229,7 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1600);
 	    setTimeout(function() {
-	        var tempPrice = (realValue - 0.45).toFixed(2);
+	        var tempPrice = (retailVal - 0.45).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
@@ -231,7 +238,7 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1800);
 	    setTimeout(function() {
-	        var tempPrice = (realValue - 0.55).toFixed(2);
+	        var tempPrice = (retailVal - 0.55).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
@@ -240,7 +247,7 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2000);
 	    setTimeout(function() {
-	        var tempPrice = (realValue - 0.65).toFixed(2);
+	        var tempPrice = (retailVal - 0.65).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
@@ -249,7 +256,7 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2300);
 	    setTimeout(function() {
-	        var tempPrice = (realValue - 0.75).toFixed(2);
+	        var tempPrice = (retailVal - 0.75).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
@@ -258,7 +265,7 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2600);
 	    setTimeout(function() {
-	        var tempPrice = (realValue - 0.85).toFixed(2);
+	        var tempPrice = (retailVal - 0.85).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
@@ -267,7 +274,7 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2900);
 	    setTimeout(function() {
-	        var tempPrice = (realValue - 1).toFixed(2);
+	        var tempPrice = (retailVal - 1).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
@@ -281,7 +288,8 @@
 
 	        $(".shopname").text(localStorage.finalStoreName);
 	        $(".saved-amount_price_item").text(localStorage.savedPrice);
-	        $(".searching-best-price-text").hide("slow");
+	        $(".searching-best-price-text").animateCss("fadeOut");
+	        $(".searching-best-price-text").hide();
 	    }, 3500);
 
 	    return false;

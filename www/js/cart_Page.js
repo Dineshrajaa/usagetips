@@ -154,7 +154,14 @@
 	    index = ''
 		//fav design new 
 		favproducts = new Array();
+		
+		if (localStorage["favlocalpro"]) {
+			favproducts = ''
+       favproducts = JSON.parse(localStorage["favlocalpro"]);
+  
+        }
 
+		
 	    var userdata = loginMethods.getUserInfo();
 
 	    if (localStorage.getItem('backbuttonpressed') == 'true') {
@@ -165,6 +172,8 @@
 	        console.log(localStorage.getItem('page'));
 	        type = localStorage.choosedGender || localStorage.type
 	        console.log(localStorage.getItem('type'));
+			favproducts = ''
+			favproducts = JSON.parse(localStorage["favlocalpro"]);
 	        //color = localStorage.getItem('color');
 	        //console.log(localStorage.getItem('color'));
 	        if (color) {
@@ -799,6 +808,7 @@
 		 localStorage.setItem('productClickedId' ,selectedProId);
 		 localStorage.setItem('productcat',cat);
 	     localStorage.setItem('page',page_no);
+		 localStorage["favlocalpro"] = JSON.stringify(favproducts);
 		 window.location='product_Details.html'
 		 
 		
