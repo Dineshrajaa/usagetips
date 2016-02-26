@@ -50,7 +50,7 @@ html, body { height: 100%; }
 #pagecontent .product-list .product-title .favorite { position:absolute; left:10px; top:10px; }*/
 #pagecontent .product-list .product-title h5 { text-align:right; margin:0; color:#656565; font-size:19px; font-family: 'Futura Medium';}
 
-#pagefooter { height: 40px; background-color: #ffff; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999; }
+#pagefooter { height: 40px !important ; background-color: #ffff; position: fixed !important; bottom: 0 !important; left: 0 !important; width: 100% !important; z-index: 999; }
 #pagefooter .caret-up { -webkit-transform: rotate(-180deg); -moz-transform: rotate(-180deg); -ms-transform: rotate(-180deg); -o-transform: rotate(-180deg);    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=6); }
 #pagefooter .drop-up { top: auto; right:0; bottom: 100% !important; text-align:center; border:2px solid #000 }
 #pagefooter .drop-up.product-filter { width: 100px; margin: 0 auto; padding:20px; height: auto; max-height:330px; overflow-x: hidden;}
@@ -64,7 +64,7 @@ html, body { height: 100%; }
 #pagefooter .dropdown-menu { min-width: inherit; }
 #pagefooter .dropdown-menu>li>a { padding:0; margin:0; }
 #pagefooter .btn-group { width:100%; background:#000; }
-#pagefooter .btn-group button { border:0; width:100%; min-height:40px;  background:#000; border-radius:0; color:#fff; }
+#pagefooter .btn-group button { border:0 !important; width:100%; min-height:40px !important;  background:#000; border-radius:0!important; color:#fff; }
 #pagefooter .btn-group button img { opacity:0.5; }
 #pagefooter .btn-group button:hover img { opacity:1; }
 #pagefooter .btn-group.open .dropdown-toggle, #pagefooter .open>.dropdown-toggle.btn-default:focus { -webkit-box-shadow:none; box-shadow: none; border-radius:0; }
@@ -102,7 +102,7 @@ html, body { height: 100%; }
 .modal-content { padding: 7px 11px 6px; border-radius: 0; width:400px; border:1px solid #adadad;}
 .modal-dialog { width:90%; margin:0;  bottom: 40px; margin: auto; left: 50px; position: absolute; height: inherit; }
 .modal-content-inner {  }
-.carousel-indicators { position:static; width:100%; left:0; margin-left:0; margin:5px 0;}     /* edited 23/2/2016  */
+.carousel-indicators { position:static; width:100%; left:0; margin-left:0; margin:10px 0 10px;} /* edited 23/2/2016  */  /* edited 25/2/2016  */
 .carousel-indicators li { background:#CECECE; width:10px; height:10px; }
 .carousel-indicators .active { background:#000; width:12px; height:12px;  }
 .pro-popup-details { text-align: center; text-transform: uppercase; }
@@ -210,18 +210,18 @@ html, body { height: 100%; }
 	}
 	
 .retail-text-in-popup  {
-	  font-size:13px; margin-left:5px;   /* edited 23/2/2016  */
+	  font-size:15px; margin-left:1px;   /* edited 23/2/2016  */  /* edited 25/2/2016  */
 	  margin-top:-10px;
 	  font-family: 'Avenir Next Medium';
 	 }
 	 
 .retail-price-in-popup   {
-	   font-size:13px; text-decoration:line-through; margin-top:-12px;   /* edited 23/2/2016  */
+	   font-size:18px; text-decoration:line-through; margin-top:-15px;   /* edited 23/2/2016  */  /* edited 25/2/2016  */
 	   font-family: 'Avenir Next Medium';
 	}
 	
 .discounted-price-in-pop-up  {
-	  font-size:34px; color:#000; text-align:center; margin-top:-14px;   /* edited 23/2/2016  */
+	  font-size:40px; color:#000; text-align:center; margin-top:-18px;   /* edited 23/2/2016  */  /* edited 25/2/2016  */
 	  font-family: 'Avenir Next Bold';
 	  font-weight:bold;
 	  color:#000;
@@ -231,22 +231,22 @@ html, body { height: 100%; }
 	}
 	
 	.saved-text-in-popup  {
-	font-size:13px; text-align:right;                                     /* edited 23/2/2016  */
-	margin-top:-12px; margin-left:-6px;
+	font-size:15px; text-align:right;                                     /* edited 23/2/2016  */  /* edited 25/2/2016  */
+	margin-top:-10px;
 	font-family: 'Avenir Next Medium';
 	}
 
 	.saved-amount-in-popup  {
-	  font-size:15px; margin-top:-11px; text-align:right; margin-left:8px;         /* edited 23/2/2016  */
+	  font-size:18px; margin-top:-15px; text-align:right;        /* edited 23/2/2016  */  /* edited 25/2/2016  */
 	  font-family: 'Avenir Next Medium';
 	}
 	
-.buy-button-amazon  {
+.buy-button-amazon  {                            /* edited 25/2/2016  */
 	  margin-top:3px; margin-bottom:6px; 
 	  color:#fff; background-color:#000; 
-	  font-size:12px ; 
-	  font-family: 'Avenir Next Medium';
-	  padding: 7px 10px 8px 12px; border-radius:8px;
+	  font-size:18px ; 
+	  font-family: 'Avenir Next Bold'; 
+	  padding: 9px 15px 7px; border-radius:8px;
 	  text-align:left;
 	}
 	
@@ -254,8 +254,9 @@ html, body { height: 100%; }
 	  color:#fff; 
 	 }
 	 
-	.buy-button-amazon span  {
+	.buy-button-amazon span  {                   /* edited 25/2/2016  */
 	  float:right;
+	  font-family: 'Avenir Next Medium';
 	}
 
    .product-name-in-popup   {
@@ -367,13 +368,44 @@ html, body { height: 100%; }
   padding-right:0px; padding-left:0px;
 }
 
-.searching-best-price-text  {
- font-size:14px; font-style:italic; margin-top:2px; text-align:center;
+.searching-best-price-text  {          
+ font-size:14px; font-style:italic; margin-top:-8px; text-align:center;              /* edited 25/2/2016  */
 font-family: 'Avenir Next MediumItalic';
 }
 
-.shopname {
-    -webkit-animation-duration: 5s;
+/* newly added 25/2/2016  */
+
+.save-to-favourite  {
+	  margin-top:10px !important; margin-bottom:6px; 
+	  color:#fff; background-color:#c0c0c0; 
+	  font-size:18px ; 
+	  font-family: 'Avenir Next Medium';
+	  padding:8px 0 6px !important; border-radius:8px;
+	  text-align:center;
+	  text-transform:uppercase;
+	  margin-bottom:10px !important;
+	}
+	
+.save-to-favourite:hover {
+	  color:#fff; 
+	 }
+	 
+    .btn-side-padding  {
+	  padding-left:35px !important;
+	  padding-right:35px !important;
+}
+
+ .shopname {
+
+ -webkit-animation-duration: 2s;
     -webkit-animation-delay: 4s;
     
+}
+
+
+.background_imgfav  {
+ background-image: url(../img/no_fav.png);
+  background-size: cover; 
+  min-height: 90%; 
+ min-height: 90vh;
 }
