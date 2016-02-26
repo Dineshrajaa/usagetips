@@ -217,7 +217,7 @@
 	        el: el,
 	        value: retailVal,
 	        // Any option (other than auto and selector) can be passed in here
-	        format: '(ddd).dd',
+	        format: '( ddd).dd',
 	        theme: 'default'
 	    });
 
@@ -353,7 +353,7 @@
 	        od.update(localStorage.sellingPrice);
 
 	        $(".shopname").text(localStorage.finalStoreName + ".com");
-	        $(".saved-amount_price_item").text(localStorage.savedPrice);
+	        $(".saved-amount_price_item").text(parseFloat(localStorage.savedPrice).toFixed(2));
 	        //$(".searching-best-price-text").animateCss("fadeOut");
 	        $(".searching-best-price-text").fadeOut("slow");
 	        // $(".searching-best-price-text").hide();

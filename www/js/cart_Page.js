@@ -152,25 +152,25 @@
 	    hasnext = false
 	        //to position popup(left/right)
 	    index = ''
-		//fav design new 
-		flag=false;
-		
-		favproducts = new Array();
-		
-		if (localStorage["favlocalpro"]) {
-			favproducts = ''
-       favproducts = JSON.parse(localStorage["favlocalpro"]);
-  
-        }
+	        //fav design new 
+	    flag = false;
 
-		
+	    favproducts = new Array();
+
+	    if (localStorage["favlocalpro"]) {
+	        favproducts = ''
+	        favproducts = JSON.parse(localStorage["favlocalpro"]);
+
+	    }
+
+
 	    var userdata = loginMethods.getUserInfo();
 
 	    if (localStorage.getItem('backbuttonpressed') == 'true') {
-			console.log('bckbtn')
-			favproducts = ''
-			favproducts = JSON.parse(localStorage["favlocalpro"]);
-			//alert(favproducts)
+	        console.log('bckbtn')
+	        favproducts = ''
+	        favproducts = JSON.parse(localStorage["favlocalpro"]);
+	        //alert(favproducts)
 	        //color = localStorage.getItem('color');
 	        //console.log(localStorage.getItem('color'));
 	        if (color) {
@@ -180,7 +180,7 @@
 	        } else
 	            console.log('lodng');
 	        //without color filter
-	      //  makeAjaxcall();
+	        //  makeAjaxcall();
 
 	    }
 
@@ -606,8 +606,8 @@
 	                    console.log(JSON.stringify(response));
 	                    console.log(proid);
 	                    var srcimg = $("#" + proid).attr('src')
-						 var brandid=proid +'brand'
-	                     var brandimg = $("#" + brandid).html();
+	                    var brandid = proid + 'brand'
+	                    var brandimg = $("#" + brandid).html();
 	                    console.warn(brandimg);
 	                    console.warn(srcimg);
 	                    var removefavid = response.pk;
@@ -616,22 +616,20 @@
 	                        itemStoreLink: purchaseurl,
 	                        pk: removefavid,
 	                        likebtnid: propicid,
-							productname:brandimg,
-							productid:proid
-							
+	                        productname: brandimg,
+	                        productid: proid
+
 	                    };
-					 var present=false;
-							for(var i=0;i<favproducts.length;i++)
-							{   if(favproducts[i].pk==response.pk)
-							present=true 
-						    }
-							if(present)	 
-							{console.log('product already present');}
-						else
-							favproducts.push(favObject);
-						
-						
-						//fav new design 23 feb
+	                    var present = false;
+	                    for (var i = 0; i < favproducts.length; i++) {
+	                        if (favproducts[i].pk == response.pk)
+	                            present = true
+	                    }
+	                    if (present) { console.log('product already present'); } else
+	                        favproducts.push(favObject);
+
+
+	                    //fav new design 23 feb
 	                    //$('.scrollable-menu-favourite').append(getFavoritesHTML(favObject));
 	                    console.log("Successss - adding " + removefavid);
 	                    if ($('.scrollable-menu-favourite li').length > 0) {
@@ -668,15 +666,14 @@
 	                    console.log("No JSON data returned");
 	                }
 	            });
-				 //removeItem from favproducts array 24-feb
-				
-     favproducts=favproducts
-                .filter(function (el) {
-                      return el.productid !== proid;
-                 }
-);
+	            //removeItem from favproducts array 24-feb
+
+	            favproducts = favproducts
+	                .filter(function(el) {
+	                    return el.productid !== proid;
+	                });
 	        }
-			
+
 
 	    });
 
@@ -708,33 +705,33 @@
 	    });*/
 	});
 
-	function changeText(od, realValue,retailVal) {
-		realValue=parseFloat(localStorage.sellingPrice);
-		retailVal=parseFloat(localStorage.retailPrice);
+	function changeText(od, realValue, retailVal) {
+	    realValue = parseFloat(localStorage.sellingPrice);
+	    retailVal = parseFloat(localStorage.retailPrice);
 	    $(".shopname").text("Rei.com");
 	    /*setTimeout(function() {
 	                    $(".shopname").text("Rei.com");
 	                    $(".shopname").animateCss("flipOutX");
 	                }, 500);*/
 	    setTimeout(function() {
-	    	var tempPrice=parseFloat((realValue - 0.15)).toFixed(2);
-	    	var tempSaved=(retailVal-tempPrice);
+	        var tempPrice = parseFloat((realValue - 0.15)).toFixed(2);
+	        var tempSaved = (retailVal - tempPrice);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
 	        $(".shopname").text("Tradsey.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1100);
 	    setTimeout(function() {
-	    	var tempPrice=(realValue - 0.25).toFixed(2);
-	    	var tempSaved=(retailVal-tempPrice);
+	        var tempPrice = (realValue - 0.25).toFixed(2);
+	        var tempSaved = (retailVal - tempPrice);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
 	        $(".shopname").text("Oodle.com");
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1400);
 	    setTimeout(function() {
-	    	var tempPrice=(realValue - 0.35).toFixed(2);
-	    	var tempSaved=(retailVal-tempPrice);
+	        var tempPrice = (realValue - 0.35).toFixed(2);
+	        var tempSaved = (retailVal - tempPrice);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
 	        //od.update((realValue - 0.35));
@@ -742,8 +739,8 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1600);
 	    setTimeout(function() {
-	    	var tempPrice=(realValue - 0.45).toFixed(2);
-	    	var tempSaved=(retailVal-tempPrice);
+	        var tempPrice = (realValue - 0.45).toFixed(2);
+	        var tempSaved = (retailVal - tempPrice);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
 	        //od.update((realValue - 0.45));
@@ -751,8 +748,8 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 1800);
 	    setTimeout(function() {
-	    	var tempPrice=(realValue - 0.55).toFixed(2);
-	    	var tempSaved=(retailVal-tempPrice);
+	        var tempPrice = (realValue - 0.55).toFixed(2);
+	        var tempSaved = (retailVal - tempPrice);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
 	        //od.update((realValue - 0.55));
@@ -760,8 +757,8 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2000);
 	    setTimeout(function() {
-	    	var tempPrice=(realValue - 0.65).toFixed(2);
-	    	var tempSaved=(retailVal-tempPrice);
+	        var tempPrice = (realValue - 0.65).toFixed(2);
+	        var tempSaved = (retailVal - tempPrice);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
 	        //od.update((realValue - 0.65));
@@ -769,8 +766,8 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2300);
 	    setTimeout(function() {
-	    	var tempPrice=(realValue - 0.75).toFixed(2);
-	    	var tempSaved=(retailVal-tempPrice);
+	        var tempPrice = (realValue - 0.75).toFixed(2);
+	        var tempSaved = (retailVal - tempPrice);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
 	        //od.update((realValue - 0.75));
@@ -778,8 +775,8 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2600);
 	    setTimeout(function() {
-	    	var tempPrice=(realValue - 0.85).toFixed(2);
-	    	var tempSaved=(retailVal-tempPrice);
+	        var tempPrice = (realValue - 0.85).toFixed(2);
+	        var tempSaved = (retailVal - tempPrice);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
 	        //od.update((realValue - 0.85));
@@ -787,8 +784,8 @@
 	        $(".shopname").animateCss("flipOutX");
 	    }, 2900);
 	    setTimeout(function() {
-	    	var tempPrice=(realValue - 1).toFixed(2);
-	    	var tempSaved=(retailVal-tempPrice);
+	        var tempPrice = (realValue - 1).toFixed(2);
+	        var tempSaved = (retailVal - tempPrice);
 	        od.update(tempPrice);
 	        $(".saved-amount_price_item").text(tempSaved);
 	        //od.update((realValue - 1));
@@ -809,128 +806,128 @@
 
 	function setSelectedProduct(selectedPro) {
 	    var selectedProId = $(selectedPro).attr("id");
-		 localStorage.setItem('productClickedId' ,selectedProId);
-		 localStorage.setItem('productClickedId' ,selectedProId);
-		 localStorage.setItem('productcat',cat);
-	     localStorage.setItem('page',page_no);
-		 localStorage["favlocalpro"] = JSON.stringify(favproducts);
-		 window.location='product_Details.html'
-		 
-		
-		/**  old flow for rendering product details page as popup**/
-/*	    var carId = $(selectedPro).data("carid");
-	    // Stop Auto carousel
-	    $("#" + carId).carousel('pause');
-	    $("#" + carId).carousel(0);
-	    $("#" + carId).carousel('pause');
-	    $("#" + carId).carousel({
-	        interval: false
-	    });
-	    /*$("#" + carId).on('show.bs.modal', function() {
-	    	//alert('The modal is about to be shown.');
-	    	changeText();
-
-	    });
-	    $.ajax({
-	        type: 'GET',
-	        url: 'http://staging12.getpriceapp.com/item-details/' + selectedProId + '/',
-	        beforeSend: function() {
-
-	            $body.addClass("loading");
-	        },
-	        complete: function() {
-
-	            $body.removeClass("loading");
-	        },
-	        contentType: "application/json",
-	        dataType: "json",
-	        data: {
-
-	        },
-	        success: function(data) {
-
-	            var getitemdetails = JSON.stringify(data);
-	            console.log(getitemdetails)
-	            localStorage.selectedProDetails = getitemdetails;
-	            var productDetail = localStorage.selectedProDetails;
-
-	            var imageArray = new Array(5);
-	            imageArray.length = 0; // Empties array
-	            console.log(selectedProId);
-	            var modalTitle = data.title;
-	            var modalprice = data.price;
-	            localStorage.retailPrice=modalprice || 0;
-	            var modalprice_sold = data.price_sold;
-	            localStorage.sellingPrice=modalprice_sold || 0;
-	            var modalamount_saved = data.amount_saved;
-	            var plength = data.photo_set.length
-	            var productImages = data.photo_set;
-	            var moda_purchaseURL = data.purchase_url;
-	            localStorage.finalStoreName = data.store_name || "Amazon";
-	            if (plength == 5) {
-	                imageArray[0] = productImages[0].url_large
-	                imageArray[1] = productImages[1].url_large
-	                imageArray[2] = productImages[2].url_large
-	                imageArray[3] = productImages[3].url_large
-	                imageArray[4] = productImages[4].url_large
-	            } else if (plength == 4) {
-	                imageArray[0] = productImages[0].url_large
-	                imageArray[1] = productImages[1].url_large
-	                imageArray[2] = productImages[2].url_large
-	                imageArray[3] = productImages[3].url_large
-	                imageArray[4] = productImages[1].url_large
-
-	            } else if (plength == 3) {
-	                imageArray[0] = productImages[0].url_large
-	                imageArray[1] = productImages[1].url_large
-	                imageArray[2] = productImages[2].url_large
-	                imageArray[3] = productImages[0].url_large
-	                imageArray[4] = productImages[1].url_large
-	            } else if (plength == 2) {
-	                imageArray[0] = productImages[0].url_large
-	                imageArray[1] = productImages[1].url_large
-	                imageArray[2] = productImages[0].url_large
-	                imageArray[3] = productImages[1].url_large
-	                imageArray[4] = productImages[0].url_large
-	            } else if (plength == 1) {
-	                imageArray[0] = productImages[0].url_large
-	                imageArray[1] = productImages[0].url_large
-	                imageArray[2] = productImages[0].url_large
-	                imageArray[3] = productImages[0].url_large
-	                imageArray[4] = productImages[0].url_large
-	            } else {
-	                imageArray[0] = "./assets/img/no_img.png"
-	                imageArray[1] = "./assets/img/no_img.png"
-	                imageArray[2] = "./assets/img/no_img.png"
-	                imageArray[3] = "./assets/img/no_img.png"
-	                imageArray[4] = "./assets/img/no_img.png"
-
-	            }
-
-	            $("#" + carId).find("img.carimage").each(function(i, e) {
-
-	                console.log(i);
-
-	                if (typeof imageArray[i] !== undefined) {
-	                    $(e).attr('src', imageArray[i])
-	                }
+	    localStorage.setItem('productClickedId', selectedProId);
+	    localStorage.setItem('productClickedId', selectedProId);
+	    localStorage.setItem('productcat', cat);
+	    localStorage.setItem('page', page_no);
+	    localStorage["favlocalpro"] = JSON.stringify(favproducts);
+	    window.location = 'product_Details.html'
 
 
-	            });
+	    /**  old flow for rendering product details page as popup**/
+	    /*	    var carId = $(selectedPro).data("carid");
+	    	    // Stop Auto carousel
+	    	    $("#" + carId).carousel('pause');
+	    	    $("#" + carId).carousel(0);
+	    	    $("#" + carId).carousel('pause');
+	    	    $("#" + carId).carousel({
+	    	        interval: false
+	    	    });
+	    	    /*$("#" + carId).on('show.bs.modal', function() {
+	    	    	//alert('The modal is about to be shown.');
+	    	    	changeText();
 
-	            $("#" + carId).find("img.carimage").each(function(i, e) {
+	    	    });
+	    	    $.ajax({
+	    	        type: 'GET',
+	    	        url: 'http://staging12.getpriceapp.com/item-details/' + selectedProId + '/',
+	    	        beforeSend: function() {
 
-	                console.log(i);
+	    	            $body.addClass("loading");
+	    	        },
+	    	        complete: function() {
+
+	    	            $body.removeClass("loading");
+	    	        },
+	    	        contentType: "application/json",
+	    	        dataType: "json",
+	    	        data: {
+
+	    	        },
+	    	        success: function(data) {
+
+	    	            var getitemdetails = JSON.stringify(data);
+	    	            console.log(getitemdetails)
+	    	            localStorage.selectedProDetails = getitemdetails;
+	    	            var productDetail = localStorage.selectedProDetails;
+
+	    	            var imageArray = new Array(5);
+	    	            imageArray.length = 0; // Empties array
+	    	            console.log(selectedProId);
+	    	            var modalTitle = data.title;
+	    	            var modalprice = data.price;
+	    	            localStorage.retailPrice=modalprice || 0;
+	    	            var modalprice_sold = data.price_sold;
+	    	            localStorage.sellingPrice=modalprice_sold || 0;
+	    	            var modalamount_saved = data.amount_saved;
+	    	            var plength = data.photo_set.length
+	    	            var productImages = data.photo_set;
+	    	            var moda_purchaseURL = data.purchase_url;
+	    	            localStorage.finalStoreName = data.store_name || "Amazon";
+	    	            if (plength == 5) {
+	    	                imageArray[0] = productImages[0].url_large
+	    	                imageArray[1] = productImages[1].url_large
+	    	                imageArray[2] = productImages[2].url_large
+	    	                imageArray[3] = productImages[3].url_large
+	    	                imageArray[4] = productImages[4].url_large
+	    	            } else if (plength == 4) {
+	    	                imageArray[0] = productImages[0].url_large
+	    	                imageArray[1] = productImages[1].url_large
+	    	                imageArray[2] = productImages[2].url_large
+	    	                imageArray[3] = productImages[3].url_large
+	    	                imageArray[4] = productImages[1].url_large
+
+	    	            } else if (plength == 3) {
+	    	                imageArray[0] = productImages[0].url_large
+	    	                imageArray[1] = productImages[1].url_large
+	    	                imageArray[2] = productImages[2].url_large
+	    	                imageArray[3] = productImages[0].url_large
+	    	                imageArray[4] = productImages[1].url_large
+	    	            } else if (plength == 2) {
+	    	                imageArray[0] = productImages[0].url_large
+	    	                imageArray[1] = productImages[1].url_large
+	    	                imageArray[2] = productImages[0].url_large
+	    	                imageArray[3] = productImages[1].url_large
+	    	                imageArray[4] = productImages[0].url_large
+	    	            } else if (plength == 1) {
+	    	                imageArray[0] = productImages[0].url_large
+	    	                imageArray[1] = productImages[0].url_large
+	    	                imageArray[2] = productImages[0].url_large
+	    	                imageArray[3] = productImages[0].url_large
+	    	                imageArray[4] = productImages[0].url_large
+	    	            } else {
+	    	                imageArray[0] = "./assets/img/no_img.png"
+	    	                imageArray[1] = "./assets/img/no_img.png"
+	    	                imageArray[2] = "./assets/img/no_img.png"
+	    	                imageArray[3] = "./assets/img/no_img.png"
+	    	                imageArray[4] = "./assets/img/no_img.png"
+
+	    	            }
+
+	    	            $("#" + carId).find("img.carimage").each(function(i, e) {
+
+	    	                console.log(i);
+
+	    	                if (typeof imageArray[i] !== undefined) {
+	    	                    $(e).attr('src', imageArray[i])
+	    	                }
 
 
-	                console.log($(e).attr('src'));
+	    	            });
+
+	    	            $("#" + carId).find("img.carimage").each(function(i, e) {
+
+	    	                console.log(i);
 
 
-	            });
-	            if (modalTitle.length > 27) {
-					console.log("20:  " + modalTitle.replace(/^(.{27}[^\s]*).*///, "$1") + "\n");
-	              //   var shortText =modalTitle.replace(/^(.{27}[^\s]*).*/, "$1");
-	            /*    $("#" + carId).find(".product-name-in-popup").text(shortText);
+	    	                console.log($(e).attr('src'));
+
+
+	    	            });
+	    	            if (modalTitle.length > 27) {
+	    					console.log("20:  " + modalTitle.replace(/^(.{27}[^\s]*).*/ //, "$1") + "\n");
+	    //   var shortText =modalTitle.replace(/^(.{27}[^\s]*).*/, "$1");
+	    /*    $("#" + carId).find(".product-name-in-popup").text(shortText);
 	            } else
 	                $("#" + carId).find(".product-name-in-popup").text(modalTitle);
 	            //' + parseFloat(modalprice).toFixed(2) + '
@@ -961,8 +958,8 @@
 	    }); //end of ajax call
 		
 		*/
-		
-	}//end of function 
+
+	} //end of function 
 
 	function loadprofNew(clear) {
 	    var parsedata = JSON.parse(localStorage.getItem('itemdata'));
@@ -1021,58 +1018,55 @@
 	    }
 	}
 
-function renderItemNew(uniqueId, product, imgUrl) {
-		
-		console.log(product.fields.id);
-         console.log('rendernewitem')
-         console.log(favproducts)
+	function renderItemNew(uniqueId, product, imgUrl) {
+
+	    console.log(product.fields.id);
+	    console.log('rendernewitem')
+	    console.log(favproducts)
 	    if (typeof product == 'undefined') {
 	        return "";
 	    } else {
-			console.log(favproducts.length)
-		if(favproducts.length!=0){
-			   	for(var j=0;j<favproducts.length;j++)
-		       {     
-		       
-		       if(product.fields.id == favproducts[j].productid)
-		          { 
-			  console.log(favproducts[j].productid)
-			  console.log(product.fields.id)
-	           flag=true;
-			   console.log('true')
-			  
-	          }
-	
-			   }
-		}
-			
-		         if(flag)
-				 {   console.log('flag===false');
-					 flag=false
-						 var productHtml = '<div class="product-list">'; // productlist start
-					productHtml += '<img style="height:169px" src="' + imgUrl + '" class="img-responsive items" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">'; // Product image
-				  //  productHtml += getModalHTML(uniqueId, product, imgUrl); // Modal html maker call
-					productHtml += '<div class="product-title">'; // product title start
-					productHtml += '<p class="favorite"><img src="img/liked.png" class="like" data-favorite="liked" data-purchaseurl="' + product.fields.purchase_url + '" id="' + product.fields.id + 'like"></p>'
-					productHtml += '<h5 data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + 'brand" data-toggle="modal" data-target="#myModal' + uniqueId + '">' + product.fields.brand + '</h5>'; // product name start & end
-					productHtml += '</div>'; // product title end
-					productHtml += '</div>'; // productlist end
-					return productHtml;
-						
-					}else
-					{
-					var productHtml = '<div class="product-list">'; // productlist start
-					productHtml += '<img style="height:169px" src="' + imgUrl + '" class="img-responsive items" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">'; // Product image
-				  //  productHtml += getModalHTML(uniqueId, product, imgUrl); // Modal html maker call
-					productHtml += '<div class="product-title">'; // product title start
-					productHtml += '<p class="favorite"><img src="img/icons/fav_gray.png" class="like" data-favorite="like" data-purchaseurl="' + product.fields.purchase_url + '" id="' + product.fields.id + 'like"></p>'
-					productHtml += '<h5 data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + 'brand" data-toggle="modal" data-target="#myModal' + uniqueId + '">' + product.fields.brand + '</h5>'; // product name start & end
-					productHtml += '</div>'; // product title end
-					productHtml += '</div>'; // productlist end
-					return productHtml;
-					}
-		}
-	   
+	        console.log(favproducts.length)
+	        if (favproducts.length != 0) {
+	            for (var j = 0; j < favproducts.length; j++) {
+
+	                if (product.fields.id == favproducts[j].productid) {
+	                    console.log(favproducts[j].productid)
+	                    console.log(product.fields.id)
+	                    flag = true;
+	                    console.log('true')
+
+	                }
+
+	            }
+	        }
+
+	        if (flag) {
+	            console.log('flag===false');
+	            flag = false
+	            var productHtml = '<div class="product-list">'; // productlist start
+	            productHtml += '<img style="height:169px" src="' + imgUrl + '" class="img-responsive items" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">'; // Product image
+	            //  productHtml += getModalHTML(uniqueId, product, imgUrl); // Modal html maker call
+	            productHtml += '<div class="product-title">'; // product title start
+	            productHtml += '<p class="favorite"><img src="img/liked.png" class="like" data-favorite="liked" data-purchaseurl="' + product.fields.purchase_url + '" id="' + product.fields.id + 'like"></p>'
+	            productHtml += '<h5 data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + 'brand" data-toggle="modal" data-target="#myModal' + uniqueId + '">' + product.fields.brand.toUpperCase() + '</h5>'; // product name start & end
+	            productHtml += '</div>'; // product title end
+	            productHtml += '</div>'; // productlist end
+	            return productHtml;
+
+	        } else {
+	            var productHtml = '<div class="product-list">'; // productlist start
+	            productHtml += '<img style="height:169px" src="' + imgUrl + '" class="img-responsive items" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">'; // Product image
+	            //  productHtml += getModalHTML(uniqueId, product, imgUrl); // Modal html maker call
+	            productHtml += '<div class="product-title">'; // product title start
+	            productHtml += '<p class="favorite"><img src="img/icons/fav_gray.png" class="like" data-favorite="like" data-purchaseurl="' + product.fields.purchase_url + '" id="' + product.fields.id + 'like"></p>'
+	            productHtml += '<h5 data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + 'brand" data-toggle="modal" data-target="#myModal' + uniqueId + '">' + product.fields.brand.toUpperCase() + '</h5>'; // product name start & end
+	            productHtml += '</div>'; // product title end
+	            productHtml += '</div>'; // productlist end
+	            return productHtml;
+	        }
+	    }
+
 	    /*return '<img src="' + imgUrl + '" class="img-responsive items" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">\
 									' + getModalHTML(uniqueId, product, imgUrl) +
 	        '<div class="row border-outline">\
@@ -1082,9 +1076,9 @@ function renderItemNew(uniqueId, product, imgUrl) {
 										</div>\
 									</div>';*/
 	}
-	
 
-	
+
+
 
 	function loadprof(clear) {
 	    var parsedata = JSON.parse(localStorage.getItem('itemdata'));
@@ -1130,7 +1124,7 @@ function renderItemNew(uniqueId, product, imgUrl) {
 	        }
 	        //console.log(parsedata[0].products[i + 1].fields.id)
 	        if (parsedata[0].products[v]) {
-	            if (parsedata[0].products[v].fields.photo_set.length)
+	            if (typeof parsedata[0].products[v].fields.photo_set != undefined)
 	                img11 = parsedata[0].products[i + 1].fields.photo_set[0].url_large;
 	            else {
 	                console.log('else')
@@ -1209,7 +1203,7 @@ function renderItemNew(uniqueId, product, imgUrl) {
 									' + getModalHTML(uniqueId, product, imgUrl) +
 	        '<div class="row border-outline">\
 										<div class="col-xs-12 pic" >\
-											<p ><img src="./assets/img/like.png"  class="like" data-favorite="like" data-purchaseurl="' + product.fields.purchase_url + '" id="' + product.fields.id + 'like"><span style="text-decoration: none!important;" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" data-toggle="modal" data-target="#myModal' + uniqueId + '">' + product.fields.brand + '</span>\
+											<p ><img src="./assets/img/like.png"  class="like" data-favorite="like" data-purchaseurl="' + product.fields.purchase_url + '" id="' + product.fields.id + 'like"><span style="text-decoration: none!important;" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" data-toggle="modal" data-target="#myModal' + uniqueId + '">' + product.fields.brand.toUpperCase() + '</span>\
 												<br> <span style="display:none" class="strike" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.fields.id + '" data-toggle="modal" data-target="#myModal' + uniqueId + '">$' + product.fields.price + '</span></p>\
 										</div>\
 									</div>';
@@ -1426,28 +1420,28 @@ function renderItemNew(uniqueId, product, imgUrl) {
 	          						top: -scrollPos
 	      });*/
 	});
-	
-	
-	    
-	$(document).on('click','#favoritedropdown' ,function(){
-		  
-           localStorage.setItem('productcat',cat);
-	     localStorage.setItem('page',page_no);
-		 //alert(JSON.stringify(favproducts))
-		 localStorage["favlocalpro"] = JSON.stringify(favproducts);
-		  window.location='favourite.html'
-		
+
+
+
+	$(document).on('click', '#favoritedropdown', function() {
+
+	    localStorage.setItem('productcat', cat);
+	    localStorage.setItem('page', page_no);
+	    //alert(JSON.stringify(favproducts))
+	    localStorage["favlocalpro"] = JSON.stringify(favproducts);
+	    window.location = 'favourite.html'
+
 
 	})
-	
-	
-		function renderItemfav(uniqueId, product, imgUrl) {
+
+
+	function renderItemfav(uniqueId, product, imgUrl) {
 	    if (typeof product == 'undefined') {
 	        return "";
 	    } else {
 	        var productHtml = '<div class="product-list">'; // productlist start
 	        productHtml += '<img style="height:169px" src="' + imgUrl + '" class="img-responsive items" data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.productid + '" alt=' + uniqueId + ' data-toggle="modal" data-target="#myModal' + uniqueId + '">'; // Product image
-	       //productHtml += getModalHTML(uniqueId, product, imgUrl); // Modal html maker call
+	        //productHtml += getModalHTML(uniqueId, product, imgUrl); // Modal html maker call
 	        productHtml += '<div class="product-title">'; // product title start
 	        productHtml += '<p class="favorite"><img src="img/liked.png" class="like" data-favorite="liked" data-purchaseurl="' + product.itemStoreLink + '" id="' + product.pk + 'like"></p>'
 	        productHtml += '<h5 data-carid="myModal' + uniqueId + '" onclick="setSelectedProduct(this)" id="' + product.pk + 'brand" data-toggle="modal" data-target="#myModal' + uniqueId + '">' + product.productname + '</h5>'; // product name start & end
@@ -1455,7 +1449,7 @@ function renderItemNew(uniqueId, product, imgUrl) {
 	        productHtml += '</div>'; // productlist end
 	        return productHtml;
 	    }
-	    
+
 	}
 	//show x after modal is shown and then reposition it
 	//hack because bootstrap and variable device size
@@ -1559,7 +1553,7 @@ function renderItemNew(uniqueId, product, imgUrl) {
 	    od.value = retailVal;
 
 	    //od.update(realValue);
-	    changeText(od, realValue,retailVal);
+	    changeText(od, realValue, retailVal);
 
 	});
 
@@ -1711,17 +1705,18 @@ function renderItemNew(uniqueId, product, imgUrl) {
 	}
 
 	function makeAjaxcall() {
-		if (localStorage.getItem('backbuttonpressed') == 'true') {
-		console.log('makeajaxcallbckbtn')
+	    if (localStorage.getItem('backbuttonpressed') == 'true') {
+	        console.log('makeajaxcallbckbtn')
 	        localStorage.setItem('backbuttonpressed', 'false');
 	        cat = localStorage.getItem('productcat');
 	        console.log(localStorage.getItem('productcat'));
 	        //page_no = localStorage.getItem('page');
 	        console.log(localStorage.getItem('page'));
-	         type = localStorage.choosedGender || localStorage.type
-		     console.log(localStorage.getItem('type'));}
-		   
-		
+	        type = localStorage.choosedGender || localStorage.type
+	        console.log(localStorage.getItem('type'));
+	    }
+
+
 	    if (cat == "all" && localStorage.choosedGender == "both")
 	        cat = "";
 	    $('.add-items').html('')

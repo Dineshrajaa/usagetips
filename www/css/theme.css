@@ -119,7 +119,7 @@ html, body { height: 100%; }
 #pagecontent .pro-list-container { display: inline-block; width:100%; margin:0 auto; }
 #pagecontent .pro-list-container .pro-list { float:left; width:47%; margin:2% 2% 0% 2%; }
 #pagecontent .pro-list-container .pro-list .product-list { margin-bottom:0; }
-#pagecontent .pro-list-container .pro-list:last-child { margin-right:2%; margin-left:0; }
+#pagecontent .pro-list-container .pro-list:last-child { margin-right:1%; margin-left:1%; }
 .onoffswitch {
     position: relative; width: 60px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
