@@ -221,7 +221,7 @@ html, body { height: 100%; }
 	}
 	
 .discounted-price-in-pop-up  {
-	  font-size:40px; color:#000; text-align:center; margin-top:-18px;   /* edited 23/2/2016  */  /* edited 25/2/2016  */
+	  font-size:40px; text-align:center; margin-top:-18px;   /* edited 23/2/2016  */  /* edited 25/2/2016  */
 	  font-family: 'Avenir Next Bold';
 	  font-weight:bold;
 	  color:#000;
@@ -237,8 +237,9 @@ html, body { height: 100%; }
 	}
 
 	.saved-amount-in-popup  {
-	  font-size:18px; margin-top:-15px; text-align:right;        /* edited 23/2/2016  */  /* edited 25/2/2016  */
+	  font-size:18px; margin-top:-15px;        /* edited 23/2/2016  */  /* edited 25/2/2016  */  /* edited 26/2/2016  */
 	  font-family: 'Avenir Next Medium';
+	  text-align:right;
 	}
 	
 .buy-button-amazon  {                            /* edited 25/2/2016  */
