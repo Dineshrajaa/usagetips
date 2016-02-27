@@ -25,15 +25,15 @@
 	            if (selectedProId == favproducts[j].productid) {
 	                console.log(favproducts[j].productid)
 	                console.log('already in list')
-	                $(".save-to-favourite").text('ADDED TO FAVORITES');
-
-	                $(".save-to-favourite").addClass("disabled")
+	                    //$(".save-to-favourite").text('ADDED TO FAVORITES');
+	                $(".save-to-favourite").prop("src", "img/icons/fav_gray.png")
+	                $(".save-to-favourite").addClass("disabled");
 	            }
 
 	        }
 	    } else {
 
-	        $(".save-to-favourite").text('SAVE TO FAVORITES');
+	        //$(".save-to-favourite").text('SAVE TO FAVORITES');
 	    }
 
 	    $(document).on('click', '.logodet', function() {
@@ -231,7 +231,7 @@
 	function priceManager(od, dummyVal, market) {
 	    realValue = Math.ceil(parseFloat(localStorage.sellingPrice));
 	    retailVal = Math.ceil(parseFloat(localStorage.retailPrice));
-	    console.log("dummyVal:"+dummyVal);
+	    console.log("dummyVal:" + dummyVal);
 	    var tempPrice = parseFloat((retailVal - dummyVal)).toFixed(0);
 	    var tempSaved = (retailVal - tempPrice);
 	    od.update(Math.abs(tempPrice).toFixed(0));
@@ -249,7 +249,7 @@
 	        $(".searching-best-price-text").fadeOut("slow");
 	        return;
 	    }
-	    dummyVal=parseInt((retailVal - realValue)/3);
+	    dummyVal = parseInt((retailVal - realValue) / 3);
 	    setTimeout(function() {
 	        // $(".searching-best-price-text").show();
 	        priceManager(od, dummyVal, "Tradsey.com");
@@ -262,8 +262,8 @@
 
 	    }, 600);
 	    setTimeout(function() {
-	    	dummyVal=dummyVal+Math.random();
-	    	priceManager(od, dummyVal, "Oodle.com");
+	        dummyVal = dummyVal + Math.random();
+	        priceManager(od, dummyVal, "Oodle.com");
 	        /*var tempPrice = (retailVal - 0.25).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
@@ -272,8 +272,8 @@
 	        $(".shopname").animateCss("flipOutX");*/
 	    }, 800);
 	    setTimeout(function() {
-	    	dummyVal=dummyVal+Math.random();
-	    	priceManager(od, dummyVal, "Nordtroms.com");
+	        dummyVal = dummyVal + Math.random();
+	        priceManager(od, dummyVal, "Nordtroms.com");
 	        /*var tempPrice = (retailVal - 0.35).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
@@ -283,8 +283,8 @@
 	        $(".shopname").animateCss("flipOutX");*/
 	    }, 1000);
 	    setTimeout(function() {
-	    	dummyVal=dummyVal+Math.random();
-	    	priceManager(od, dummyVal, "Cabelas.com");
+	        dummyVal = dummyVal + Math.random();
+	        priceManager(od, dummyVal, "Cabelas.com");
 	        /*var tempPrice = (retailVal - 0.45).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
@@ -294,8 +294,8 @@
 	        $(".shopname").animateCss("flipOutX");*/
 	    }, 1200);
 	    setTimeout(function() {
-	    	dummyVal=dummyVal+Math.random();
-	    	priceManager(od, dummyVal, "Sportsauthority.com");
+	        dummyVal = dummyVal + Math.random();
+	        priceManager(od, dummyVal, "Sportsauthority.com");
 	        /*var tempPrice = (retailVal - 0.55).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
@@ -305,19 +305,19 @@
 	        $(".shopname").animateCss("flipOutX");*/
 	    }, 1400);
 	    setTimeout(function() {
-	    	dummyVal=dummyVal+Math.random();
-	    	priceManager(od, dummyVal, "Ebay.com");
-	       /* var tempPrice = (retailVal - 0.65).toFixed(2);
-	        var tempSaved = (retailVal - tempPrice).toFixed(2);
-	        od.update(tempPrice);
-	        $(".saved-amount_price_item").text(tempSaved);
-	        //od.update((realValue - 0.65));
-	        $(".shopname").text("Ebay.com");
-	        $(".shopname").animateCss("flipOutX");*/
+	        dummyVal = dummyVal + Math.random();
+	        priceManager(od, dummyVal, "Ebay.com");
+	        /* var tempPrice = (retailVal - 0.65).toFixed(2);
+	         var tempSaved = (retailVal - tempPrice).toFixed(2);
+	         od.update(tempPrice);
+	         $(".saved-amount_price_item").text(tempSaved);
+	         //od.update((realValue - 0.65));
+	         $(".shopname").text("Ebay.com");
+	         $(".shopname").animateCss("flipOutX");*/
 	    }, 1600);
 	    setTimeout(function() {
-	    	dummyVal=dummyVal+Math.random();
-	    	priceManager(od, dummyVal, "TheRealReal.com");
+	        dummyVal = dummyVal + Math.random();
+	        priceManager(od, dummyVal, "TheRealReal.com");
 	        /*var tempPrice = (retailVal - 0.75).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
@@ -327,8 +327,8 @@
 	        $(".shopname").animateCss("flipOutX");*/
 	    }, 1800);
 	    setTimeout(function() {
-	    	dummyVal=dummyVal+Math.random();
-	    	priceManager(od, dummyVal, "Etsy.com");
+	        dummyVal = dummyVal + Math.random();
+	        priceManager(od, dummyVal, "Etsy.com");
 	        /*var tempPrice = (retailVal - 0.85).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
@@ -338,8 +338,8 @@
 	        $(".shopname").animateCss("flipOutX");*/
 	    }, 2000);
 	    setTimeout(function() {
-	    	dummyVal=dummyVal+Math.random();
-	    	priceManager(od, dummyVal, "Overstock.com");
+	        dummyVal = dummyVal + Math.random();
+	        priceManager(od, dummyVal, "Overstock.com");
 	        /*var tempPrice = (retailVal - 1).toFixed(2);
 	        var tempSaved = (retailVal - tempPrice).toFixed(2);
 	        od.update(tempPrice);
@@ -477,7 +477,9 @@
 	            if ($('.scrollable-menu-favourite li').length > 0) {
 	                $("#favoritedropdown .dropdown-toggle").removeClass("disabled");
 	            }
-	            $(".save-to-favourite").text('ADDED TO FAVORITES');
+	            /*$(".save-to-favourite").text('ADDED TO FAVORITES');
+	            $(".save-to-favourite").addClass("disabled")*/
+	            $(".save-to-favourite").prop("src", "img/icons/fav_gray.png")
 	            $(".save-to-favourite").addClass("disabled")
 
 	        },

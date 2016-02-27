@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Klutter</title>
@@ -9,27 +10,27 @@
     <link rel="stylesheet" href="css/odometer/odometer.css" />
     <link rel="stylesheet" href="css/animate/animate.css">
     <link href="css/theme.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-<!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="js/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css" />
+    <!--<link rel="stylesheet" href="css/jquery-ui.css">-->
+    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body>
-    
-	<header id="pageheader">
-  	    <a href="#"><img src="img/logo.png" class="logodet"></a>
+    <header id="pageheader">
+        <p class="product-name">GARMIN GPS RUNNING WATCH... </p>
     </header>
-	
-	<div id="wrapper">
-        <main id="pagecontent"> 
+    <div id="wrapper">
+        <main id="pagecontent">
             <div class="container-fluid">
-  	            <div class="row">
-			        <div class="col-xs-12">
-					    <p class="product-name">GARMIN GPS RUNNING WATCH... </p>
-				        <div id="carousel-example-generic" class="carousel slide" >
+                <div class="row">
+                    <div class="col-xs-12" style="margin-top:6px!important">
+                        <div id="carousel-example-generic" class="carousel slide">
                             <div class="carousel-inner" role="listbox">
-                               <!-- <div class="item active"> <img src="img/bag.jpg"> </div>
+                                <!-- <div class="item active"> <img src="img/bag.jpg"> </div>
                                  <div class="item"> <img src="img/bag.jpg"> </div>
                                  <div class="item"> <img src="img/bag.jpg"> </div>
                                 <div class="item"> <img src="img/bag.jpg"> </div>-->
@@ -41,55 +42,107 @@
                                 <li data-target="#carousel-example-generic" data-slide-to="3"></li>
                             </ol>
                         </div>
-						     <div class="col-xs-2">
+                        <div class="row product-detail-top-margin-in-popup">
+                            <div class="col-xs-2">
                                 <p class="retail-text-in-popup">RETAIL </p>
                                 <p class="retail-price-in-popup"><span>$</span><span class="retail_price_item"></span></p>
                             </div>
-                            <div class="col-xs-7">
-                                    <p class="discounted-price-in-pop-up"><span>$</span><span class="odometer" id="odometerSpan"></span><span class="hidden hidden_real_price "></span></p>
+                            <div class="col-xs-8">
+                                <p class="discounted-price-in-pop-up"><span>$</span><span class="odometer" id="odometerSpan"></span>
+                                    <!-- <span class="hidden hidden_real_price "></span> --></p>
                             </div>
                             <div class="col-xs-2">
                                 <p class="saved-text-in-popup">SAVED </p>
                                 <p class="saved-amount-in-popup"><span>$</span><span class="saved-amount_price_item">0.00</span></p>
                             </div>
                         </div>
-						<div class="row">
-			                <div class="col-xs-12 btn-side-padding">
-							    <div id="mycontent"></div>
-						     <button onclick="showPurchasePage(this)" class="btn btn-block buy-button-amazon" data-purchaseurl="" type="button">BUY <span class="shopname"></span></button>
-                            <button class="btn btn-block save-to-favourite" onclick="addtofav()" type="button">SAVE TO FAVORITES</button>
-							</div>
-			            </div>
-						
-				    </div>
-			    </div>
-			</div>
-		</main>
-	</div>
-	<footer id="pagefooter">
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <div id="mycontent"></div>
+                            </div>
+							<div class="col-xs-4">
+							    <p class="store-name shopname"></p>
+                            </div>
+							<hr style="border-color:#979797; margin-left:15px; margin-right:13px;">
+                        </div>
+                        <!--
+                        <div class="row">
+                            <div class="col-xs-3" style="padding-left:10px; padding-right:10px">
+                                <img src="img/watch.jpg" class="img-responsive">
+                            </div>
+                            <div class="col-xs-3" style="padding-left:10px; padding-right:10px">
+                                <img src="img/watch.jpg" class="img-responsive">
+                                <p class="alternative">Polar</p>
+                            </div>
+                            <div class="col-xs-3" style="padding-left:10px; padding-right:10px">
+                                <img src="img/watch.jpg" class="img-responsive">
+                                <p class="alternative">Polar</p>
+                            </div>
+                            <div class="col-xs-3" style="padding-left:10px; padding-right:10px">
+                                <img src="img/watch.jpg" class="img-responsive">
+                            </div>
+                        </div>
+                        -->
+                        <div class="row lazy">
+                                <div class="col-xs-3" style="padding-left:10px; padding-right:10px">
+                                    <img src="" class="img-responsive" data-lazy="img/watch.jpg">
+                                    <p class="alternative">Polar</p>
+                                </div>
+                                <div class="col-xs-3" style="padding-left:10px; padding-right:10px">
+                                    <img src="" class="img-responsive" data-lazy="img/watch.jpg" style="position:relative;">
+									<p class="review-btn">REVIEW</p>
+                                    <p class="alternative">Polar</p>
+                                </div>
+                                <div class="col-xs-3" style="padding-left:10px; padding-right:10px">
+                                    <img src="" class="img-responsive" data-lazy="img/watch.jpg">
+                                    <p class="alternative">Polar</p>
+                                </div>
+                                <div class="col-xs-3" style="padding-left:10px; padding-right:10px">
+                                    <img src="" class="img-responsive" data-lazy="img/watch.jpg">
+                                    <p class="alternative">Polar</p>
+                                </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer id="prodetailfooter">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
                         <div class="demo">
                             <div class="btn-group dropdisable">
-                                <button type="button" class="btn btn-default dropdown-toggle" onclick="goback()"data-toggle="dropdown"><img src="img/icons/back.png" width="22" height="21" style="opacity:1 !important; float:left; margin-left:6px;"></button>
+                                <button type="button" class="btn btn-default dropdown-toggle"  data-toggle="dropdown"><img src="img/icons/back.png" width="22" height="21" style="opacity:1 !important; float:left; margin-left:6px; margin-top:3px;" onclick="goback()"><span class="buy-button-amazon bottom-buy-btn-bg" onclick="showPurchasePage(this)" data-purchaseurl="">BUY</span> <span class="fav-btn-bg"><img src="img/icons/fav_white.png"  style="opacity:1 !important;" onclick="addtofav()" class="save-to-favourite"></span></button>
                             </div>
                         </div>
                     </div>
                 </div>
-			</div>
+            </div>
         </div>
-	</footer>
-   <script type="text/javascript" src="cordova.js"></script>
-    <script src="js/lib/jquery/jquery.min.js"></script>    
+    </footer>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/lib/jquery/jquery.min.js"></script>
     <script src="js/lib/bootstrap/bootstrap.min.js"></script>
-    <script src="js/lib/jquery-ui/jquery-ui.js"></script>
-    <script src="js/lib/jquery.spincrement.js"></script>
+    <!--<script src="js/lib/jquery-ui/jquery-ui.js"></script>
+    <script src="js/lib/jquery.spincrement.js"></script> -->
     <script src="js/lib/odometer/odometer.js"></script>
     <script src="js/lib/hammer/hammer.js"></script>
     <script src="js/lib/hammer/jquery.hammer.js"></script>
-    <script src="js/product_details.js"></script>pt> 
+    <script src="js/product_details.js"></script>
     <script src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/slick/slick.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.lazy').slick({
+            lazyLoad: 'ondemand',
+            slidesToShow: 3,
+            slidesToScroll: 1
+        });
+    });
+    </script>
 </body>
+
 </html>
