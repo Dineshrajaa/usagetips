@@ -72,7 +72,7 @@
 	        console.log("touch right");
 	        modalc.carousel('prev');
 	    })
-
+	    fetchSimilarProducts(); // Once loaded the actual product then load the similar products
 	    $.ajax({
 	        type: 'GET',
 	        url: 'http://staging12.getpriceapp.com/item-details/' + selectedProId + '/',
@@ -201,6 +201,47 @@
 
 	});
 
+	function fetchSimilarProducts() {
+	    // Method to load the similarproducts
+	    var selectedProId = localStorage.productClickedId;
+	    $.ajax({
+	        type: 'GET',
+	        url: 'http://staging12.getpriceapp.com/item/similar-category/' + selectedProId + '/',
+	        contentType: "application/json",
+	        dataType: "json",
+	        success: function(similarProducts) {
+	            console.warn(JSON.stringify(similarProducts));
+	            var similarHtml = "";
+	            for (var i = 0; i < similarProducts.length; i++) {
+	                var imageSrc = similarProducts[i].photo_set[0].url_large || "img/no_img.png";
+	                similarHtml += '<div class="col-xs-3" style="padding-left:10px; padding-right:10px">'; // Container start
+	                similarHtml += '<img class="img-responsive" src="' + imageSrc + '" data-lazy="' + imageSrc + '" id="' + similarProducts[i].pk + '" onclick="setSelectedProduct(this)">'; // Image of the product
+	                // similarHtml+='<p class="review-btn">REVIEW</p>'; // Review button
+	                similarHtml += '<p class="alternative">' + similarProducts[i].brand + '</p>'; // Product name
+	                similarHtml += '</div>'; // Container end
+	            }
+	            $("#similarProductsList").html(similarHtml);
+	            $('.lazy').slick({
+	                lazyLoad: 'ondemand',
+	                slidesToShow: 3,
+	                slidesToScroll: 1
+	            });
+	        },
+	        error: function(xhr, status, error) {
+	            console.log(xhr.responseText);
+	        }
+	    });
+	}
+
+	function setSelectedProduct(selectedPro) {
+	    var selectedProId = $(selectedPro).attr("id");
+	    localStorage.setItem('productClickedId', selectedProId);
+	    /*localStorage.setItem('productcat', cat);
+	    localStorage.setItem('page', page_no);
+	    localStorage["favlocalpro"] = JSON.stringify(favproducts);*/
+	    window.location = 'product_Details.html';
+	}
+
 	function setProductDetailsPage() {
 	    $('.carousel-inner').append('<div class="item active"> <img id="img1myModal" src="' + imageArray[0] + '"  class="slider-img carimage cover"> </div>\
 		<div class="item"><img id="img2myModal" src="' + imageArray[1] + '" class="slider-img carimage cover"> </div>\
@@ -253,100 +294,48 @@
 	    setTimeout(function() {
 	        // $(".searching-best-price-text").show();
 	        priceManager(od, dummyVal, "Tradsey.com");
-	        /*var tempPrice = parseFloat((retailVal - 0.15)).toFixed(2);
-	        var tempSaved = (retailVal - tempPrice).toFixed(2);
-	        od.update(tempPrice);
-	        $(".saved-amount_price_item").text(tempSaved);
-	        $(".shopname").text("Tradsey.com");
-	        $(".shopname").animateCss("flipOutX");*/
+
 
 	    }, 600);
 	    setTimeout(function() {
 	        dummyVal = dummyVal + Math.random();
 	        priceManager(od, dummyVal, "Oodle.com");
-	        /*var tempPrice = (retailVal - 0.25).toFixed(2);
-	        var tempSaved = (retailVal - tempPrice).toFixed(2);
-	        od.update(tempPrice);
-	        $(".saved-amount_price_item").text(tempSaved);
-	        $(".shopname").text("Oodle.com");
-	        $(".shopname").animateCss("flipOutX");*/
+
 	    }, 800);
 	    setTimeout(function() {
 	        dummyVal = dummyVal + Math.random();
 	        priceManager(od, dummyVal, "Nordtroms.com");
-	        /*var tempPrice = (retailVal - 0.35).toFixed(2);
-	        var tempSaved = (retailVal - tempPrice).toFixed(2);
-	        od.update(tempPrice);
-	        $(".saved-amount_price_item").text(tempSaved);
-	        //od.update((realValue - 0.35));
-	        $(".shopname").text("Nordtroms.com");
-	        $(".shopname").animateCss("flipOutX");*/
+
 	    }, 1000);
 	    setTimeout(function() {
 	        dummyVal = dummyVal + Math.random();
 	        priceManager(od, dummyVal, "Cabelas.com");
-	        /*var tempPrice = (retailVal - 0.45).toFixed(2);
-	        var tempSaved = (retailVal - tempPrice).toFixed(2);
-	        od.update(tempPrice);
-	        $(".saved-amount_price_item").text(tempSaved);
-	        //od.update((realValue - 0.45));
-	        $(".shopname").text("Cabelas.com");
-	        $(".shopname").animateCss("flipOutX");*/
+
 	    }, 1200);
 	    setTimeout(function() {
 	        dummyVal = dummyVal + Math.random();
 	        priceManager(od, dummyVal, "Sportsauthority.com");
-	        /*var tempPrice = (retailVal - 0.55).toFixed(2);
-	        var tempSaved = (retailVal - tempPrice).toFixed(2);
-	        od.update(tempPrice);
-	        $(".saved-amount_price_item").text(tempSaved);
-	        //od.update((realValue - 0.55));
-	        $(".shopname").text("Sportsauthority.com");
-	        $(".shopname").animateCss("flipOutX");*/
+
 	    }, 1400);
 	    setTimeout(function() {
 	        dummyVal = dummyVal + Math.random();
 	        priceManager(od, dummyVal, "Ebay.com");
-	        /* var tempPrice = (retailVal - 0.65).toFixed(2);
-	         var tempSaved = (retailVal - tempPrice).toFixed(2);
-	         od.update(tempPrice);
-	         $(".saved-amount_price_item").text(tempSaved);
-	         //od.update((realValue - 0.65));
-	         $(".shopname").text("Ebay.com");
-	         $(".shopname").animateCss("flipOutX");*/
+
 	    }, 1600);
 	    setTimeout(function() {
 	        dummyVal = dummyVal + Math.random();
 	        priceManager(od, dummyVal, "TheRealReal.com");
-	        /*var tempPrice = (retailVal - 0.75).toFixed(2);
-	        var tempSaved = (retailVal - tempPrice).toFixed(2);
-	        od.update(tempPrice);
-	        $(".saved-amount_price_item").text(tempSaved);
-	        //od.update((realValue - 0.75));
-	        $(".shopname").text("TheRealReal.com");
-	        $(".shopname").animateCss("flipOutX");*/
+
 	    }, 1800);
 	    setTimeout(function() {
 	        dummyVal = dummyVal + Math.random();
 	        priceManager(od, dummyVal, "Etsy.com");
-	        /*var tempPrice = (retailVal - 0.85).toFixed(2);
-	        var tempSaved = (retailVal - tempPrice).toFixed(2);
-	        od.update(tempPrice);
-	        $(".saved-amount_price_item").text(tempSaved);
-	        //od.update((realValue - 0.85));
-	        $(".shopname").text("Etsy.com");
-	        $(".shopname").animateCss("flipOutX");*/
+
 	    }, 2000);
 	    setTimeout(function() {
 	        dummyVal = dummyVal + Math.random();
 	        priceManager(od, dummyVal, "Overstock.com");
-	        /*var tempPrice = (retailVal - 1).toFixed(2);
-	        var tempSaved = (retailVal - tempPrice).toFixed(2);
-	        od.update(tempPrice);
-	        $(".saved-amount_price_item").text(tempSaved);
-	        //od.update((realValue - 1));
-	        $(".shopname").text("Overstock.com");
-	        $(".shopname").animateCss("flipOutX");*/
+
 	    }, 2200);
 	    setTimeout(function() {
 

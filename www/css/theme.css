@@ -99,55 +99,14 @@ body {
 }
 
 #pagefooter {
-     height: 40px !important;
-    background-color: #ffff;
-    position: fixed !important;
-    bottom: 0 !important;
-    left: 0 !important;
+    height: 40px !important;
+    background-color: #000 !important;
     width: 100% !important;
     z-index: 999;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
-
-#prodetailfooter {
-     height: 40px !important;
-    background-color: #ffff;
-    /*position: fixed !important;
-    bottom: 0 !important;
-    left: 0 !important;*/
-    width: 100% !important;
-    z-index: 999;
-}
-#prodetailfooter .btn-group {
-    width: 100%;
-    background: #000;
-}
-
-#prodetailfooter .btn-group button {
-    border: 0 !important;
-    width: 100%;
-    min-height: 40px !important;
-    background: #000;
-    border-radius: 0!important;
-    color: #fff;
-}
-
-#prodetailfooter .btn-group button img {
-    opacity: 0.5;
-}
-
-#prodetailfooter .btn-group button:hover img {
-    opacity: 1;
-}
-
-#prodetailfooter .btn-group.open .dropdown-toggle,
-#prodetailfooter .open>.dropdown-toggle.btn-default:focus {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    border-radius: 0;
-}
-
-
-
 
 #pagefooter .caret-up {
     -webkit-transform: rotate(-180deg);
@@ -901,24 +860,24 @@ body {
 
 /* newly added 25/2/2016  */
 
-.save-to-favourite {
-    /*margin-top: 10px !important;*/
-    /*margin-bottom: 6px;*/
+/*.save-to-favourite {
+    margin-top: 10px !important;
+    margin-bottom: 6px;
     color: #fff;
-    /*background-color: #c0c0c0;*/
+    background-color: #c0c0c0;
     font-size: 18px;
     font-family: 'Avenir Next Medium';
-    /*padding: 8px 0 6px !important;*/
+    padding: 8px 0 6px !important;
     border-radius: 8px;
     text-align: center;
     text-transform: uppercase;
-    /*margin-bottom: 10px !important;*/
+    margin-bottom: 10px !important;
 }
 
 .save-to-favourite:hover {
     color: #fff;
 }
-
+*/
 .btn-side-padding {
     padding-left: 35px !important;
     padding-right: 35px !important;
@@ -965,7 +924,7 @@ body {
 
 .fav-btn-bg {
     background-color: #4a4a4a;
-    padding: 5px 7px 5px;
+    padding: 5px 7px 6px;
     margin-top: -2px;
     border-radius: 4px;
     float: right;
